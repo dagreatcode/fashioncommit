@@ -18,9 +18,9 @@ If you need an example of a good README, check out [the VSCode repository](https
 
  ## _Links_:
 
-* [Shields](https://shields.io/)
+[](https://shields.io/)
 
-* [Markdowns](https://www.markdownguide.org/basic-syntax)
+[](https://www.markdownguide.org/basic-syntax)
 
 * [Github Link](https://github.com/dagreatcode/fashioncommit)
 
