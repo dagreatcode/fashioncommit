@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/dagreatcode/fashioncommit/issues"
   },
-  "homepage": "https://github.com/dagreatcode/fashioncommit#readme",
+  "homepage": "https://www.fashioncommit.com/",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.0",
