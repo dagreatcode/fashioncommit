@@ -16,6 +16,15 @@ If you're new to Markdown, read the GitHub guide on [Mastering Markdown](https:/
 
 If you need an example of a good README, check out [the VSCode repository](https://github.com/microsoft/vscode).
 
+ ## _Links_:
+
+* [Shields](https://shields.io/)
+
+* [Markdowns](https://www.markdownguide.org/basic-syntax)
+
+* [Github Link](https://github.com/dagreatcode/fashioncommit)
+
+* [Website Link](https://www.fashioncommit.com/)
 ## Index
 - [Installation](#installation)
 - [Usage](#usage)
@@ -138,13 +147,6 @@ SOFTWARE.
 🏆 
 
 ![Website](https://img.shields.io/badge/Website-fashioncommit.com-green?style=social&logo=appveyor)
-
-
-
- _Links_:
-[Dev](https://shields.io/)
-[Dev](https://www.markdownguide.org/basic-syntax)
-
 
 ## Contributing
 
