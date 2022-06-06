@@ -18,8 +18,8 @@ If you need an example of a good README, check out [the VSCode repository](https
 
  ## _Links_:
 
+[](https://choosealicense.com/licenses/)
 [](https://shields.io/)
-
 [](https://www.markdownguide.org/basic-syntax)
 
 * [Github Link](https://github.com/dagreatcode/fashioncommit)
