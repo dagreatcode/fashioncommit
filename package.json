@@ -33,7 +33,9 @@
     "inquirer": "^8.2.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "concurrently": "^7.1.0",
