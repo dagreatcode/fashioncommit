@@ -1,13 +1,20 @@
-// import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Posts from "./components/Posts/Posts";
 // import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getArticels } from "./redux/actions/index"
 
 function App() {
   // const [posts,setPosts] = useState([]);
   // const [myPosts,setMyPosts] = useState([]);
 
   const posts = useSelector((state) => state.articles);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getArticels())
+    // return () => {};
+  }, [dispatch]);
 
   // useEffect(() => {
   //   axios
