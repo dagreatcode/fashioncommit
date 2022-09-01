@@ -2,20 +2,24 @@ import React, { useEffect } from "react";
 import Posts from "./components/Posts/Posts";
 // import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getArticels } from "./redux/actions/index"
+import { getArticels } from "./redux/actions/index";
 
 function App() {
   // const [posts,setPosts] = useState([]);
   // const [myPosts,setMyPosts] = useState([]);
 
   const posts = useSelector((state) => state.articles);
+  const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getArticels())
+    dispatch(getArticels());
     // return () => {};
   }, [dispatch]);
 
+  if (error){
+    return <h1>{error}</h1>
+  }
   // useEffect(() => {
   //   axios
   //     .get("https://jsonplaceholder.typicode.com/posts")
