@@ -10,6 +10,7 @@ function App() {
 
   const posts = useSelector((state) => state.articles);
   const error = useSelector((state) => state.error);
+  const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,6 +20,10 @@ function App() {
 
   if (error){
     return <h1>{error}</h1>
+  }
+
+  if (loading){
+    return <h1>Loading . . .</h1>
   }
   // useEffect(() => {
   //   axios
