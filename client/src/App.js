@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Posts from "./components/Posts/Posts";
 import axios from "axios";
 
-// import { response } from "express";
-
 function App() {
   const [posts,setPosts] = useState([]);
   const [myPosts,setMyPosts] = useState([]);
