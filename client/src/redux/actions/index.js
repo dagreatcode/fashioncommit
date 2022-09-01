@@ -19,3 +19,7 @@ export function getArticels() {
       });
   };
 }
+
+export function getArticelsById() {
+  return function (dispatch) {};
+}
