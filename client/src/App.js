@@ -1,14 +1,31 @@
-// import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Posts from "./components/Posts/Posts";
 // import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getArticles } from "./redux/actions/index";
 
 function App() {
   // const [posts,setPosts] = useState([]);
   // const [myPosts,setMyPosts] = useState([]);
 
   const posts = useSelector((state) => state.articles);
+  const error = useSelector((state) => state.error);
+  const loading = useSelector((state) => state.loading);
+  // const reload = useSelector((state) => state.reload);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getArticles());
+    // return () => {};
+  }, [dispatch]);
+
+  if (error){
+    return <h1>{error}</h1>
+  }
+
+  if (loading){
+    return <h1>Loading . . .</h1>
+  }
   // useEffect(() => {
   //   axios
   //     .get("https://jsonplaceholder.typicode.com/posts")
