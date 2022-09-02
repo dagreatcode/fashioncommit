@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Posts from "./components/Posts/Posts";
 // import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getArticels } from "./redux/actions/index";
+import { getArticles } from "./redux/actions/index";
 
 function App() {
   // const [posts,setPosts] = useState([]);
@@ -11,10 +11,11 @@ function App() {
   const posts = useSelector((state) => state.articles);
   const error = useSelector((state) => state.error);
   const loading = useSelector((state) => state.loading);
+  // const reload = useSelector((state) => state.reload);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getArticels());
+    dispatch(getArticles());
     // return () => {};
   }, [dispatch]);
 
