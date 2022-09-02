@@ -5,7 +5,7 @@ import {
   SET_LOADING,
 } from "../constants/action-types";
 
-export function getArticels() {
+export function getArticles() {
   return function (dispatch) {
     dispatch({ type: SET_LOADING, payload: true });
     return axios
@@ -20,6 +20,6 @@ export function getArticels() {
   };
 }
 
-export function getArticelsById() {
+export function getArticlesById() {
   return function (dispatch) {};
 }
