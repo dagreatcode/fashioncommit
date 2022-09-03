@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import Posts from "./components/Posts/Posts";
 // import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getArticles } from "./redux/actions/index";
+import { getArticles, getArticlesById } from "./redux/actions/index";
 
 function App() {
   // const [posts,setPosts] = useState([]);
   // const [myPosts,setMyPosts] = useState([]);
 
   const posts = useSelector((state) => state.articles);
+  const myPosts = useSelector((state) => state.myArticles);
   const error = useSelector((state) => state.error);
   const loading = useSelector((state) => state.loading);
   // const reload = useSelector((state) => state.reload);
@@ -16,6 +17,11 @@ function App() {
 
   useEffect(() => {
     dispatch(getArticles());
+    // return () => {};
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getArticlesById());
     // return () => {};
   }, [dispatch]);
 
@@ -44,7 +50,7 @@ function App() {
     <div className="container">
       <div className="row">
         <Posts posts={posts} title="All Posts" />
-        {/* <Posts posts={myPosts} title="My Posts" /> */}
+        <Posts posts={myPosts} title="My Posts" />
       </div>
       <h1>Hello World</h1>
     </div>
