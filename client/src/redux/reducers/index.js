@@ -1,11 +1,13 @@
 import {
   GET_ARTICLES,
+  GET_MY_ARTICLES,
   SET_ERROR,
   SET_LOADING,
 } from "../constants/action-types";
 
 const initialState = {
   articles: [],
+  myArticles: [],
   error: "",
   loading: false,
 };
@@ -15,6 +17,13 @@ function rootReducer(state = initialState, action) {
     // console.log(action.payload);
     return Object.assign({}, state, {
       articles: action.payload,
+      loading: false,
+    });
+  }
+  if (action.type === GET_MY_ARTICLES) {
+    // console.log(action.payload);
+    return Object.assign({}, state, {
+      myArticles: action.payload,
       loading: false,
     });
   }

@@ -2,7 +2,7 @@ import {legacy_createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "../reducers/index";
 import thunk from "redux-thunk";
 
-const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENION_COMPOSE__ || compose;
+const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = legacy_createStore(rootReducer, storeEnhancers(applyMiddleware(thunk)));
 
