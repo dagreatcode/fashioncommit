@@ -26,7 +26,7 @@ export function getArticlesById() {
     return axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then((response) => {
-        const filteredPosts = response.data.filter(post => post.userId === 1)
+        const filteredPosts = response.data.filter(post => post.userId === 2)
         dispatch({ type: GET_MY_ARTICLES, payload: filteredPosts });
       })
       .catch((err) => {
