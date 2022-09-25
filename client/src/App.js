@@ -3,10 +3,10 @@ import React, { useEffect } from "react";
 // import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getArticles, getArticlesById } from "./redux/actions/index";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
-import Home from "./screens/Home/Home"
-import Login from "./screens/Login/Login"
-import NotFound from "./screens/NotFound/NotFound"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./screens/Home/Home";
+import Login from "./screens/Login/Login";
+import NotFound from "./screens/NotFound/NotFound";
 
 function App() {
   // const [posts,setPosts] = useState([]);
@@ -52,14 +52,17 @@ function App() {
 
   return (
     <>
-    <Router>
-      <Routes>
-        <Route exact path="/Login" element={<Login/>}/>
-        <Route exact path="/" element={<Home/>}/>
-        <Route path="*" element={<NotFound/>}/>
-        {/* <Route path="" element={<Home />} /> */}
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          {/* <Route path="/posts/:id" element={<Posts />} /> */}
+          {/* <Route path="/register" element={<Register />} /> */}
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/profile" element={<Profile />} /> */}
+          {/* <Route path="/admin" element={<Admin />} /> */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
       {/* <div className="container">
         <div className="row">
           <Posts posts={posts} title="All Posts" />
