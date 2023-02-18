@@ -26,7 +26,7 @@ function NavBar() {
             aria-label="Toggle navigation"
             style={{backgroundColor: "#65c9ff"}}
           >
-            <span className="navbar-toggler-icon" style={{backgroundColor: "#3330E4"}}></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
