@@ -7,9 +7,9 @@ export default function Banner() {
     <>
       <div className="container">
         <div className="row" style={{ width: "auto", height: "300px" }}>
-          <div class="card text-bg-dark">
+          <div className="card text-bg-dark" style={{border:"0"}}>
             {/* <img src="..." class="card-img" alt="..." /> */}
-            <div class="custom-shape-divider-top-1676734937">
+            <div className="custom-shape-divider-top-1676734937">
               <svg
                 data-name="Layer 1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ export default function Banner() {
                   class="shape-fill"
                 ></path>
               </svg>
-             <div className="jumbotron display-2" style={{textAlign: "center"}}>Fashion Commit</div>
+             <div className="jumbotron display-2" style={{textAlign: "center", textShadow:"1px 1px 2px #65c9ff, 0 0 1em blue, 0 0 0.2em blue"}}>Fashion Commit</div>
             </div>
             
               <Avatar
