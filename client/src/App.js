@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./screens/Home/Home";
 import Login from "./screens/Login/Login";
 import NotFound from "./screens/NotFound/NotFound";
+import UpLoadFile from "./screens/UpLoadPage/UpLoadFile";
 
 function App() {
   // const [posts,setPosts] = useState([]);
@@ -58,6 +59,7 @@ function App() {
           {/* <Route path="/posts/:id" element={<Posts />} /> */}
           {/* <Route path="/register" element={<Register />} /> */}
           <Route path="/login" element={<Login />} />
+          <Route path="/UpLoadFile" element={<UpLoadFile />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
           {/* <Route path="/admin" element={<Admin />} /> */}
           <Route path="*" element={<NotFound />} />

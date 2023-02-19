@@ -17,3 +17,14 @@
 .custom-shape-divider-top-1676734937 .shape-fill {
     fill: #3330E4;
 }
+
+
+@keyframes example {
+    /* from {text-shadow: 1px 1px 2px #65c9ff, 0 0 1em blue, 0 0 0.2em blue}
+    to {text-shadow: 1px 1px 2px blue, 0 0 1em blue, 0 0 0.2em blue}
+     */
+     0%   {text-shadow: 1px 1px 2px blue, 0 0 1em blue, 0 0 0.2em blue}
+     25%  {text-shadow: 1px 1px 2px blue, 0 0 1em blue, 0 0 0.2em yellow;}
+     50%  {text-shadow: 1px 1px 2px blue, 0 0 1em blue, 0 0 0.2em white;}
+     100% {text-shadow: 1px 1px 2px blue, 0 0 1em blue, 0 0 0.2em green;}
+  }
