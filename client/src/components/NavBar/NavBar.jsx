@@ -3,7 +3,10 @@ import React from "react";
 function NavBar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{backgroundColor: "#3330E4"}}>
+      <nav
+        className="navbar navbar-expand-lg bg-body-tertiary"
+        style={{ backgroundColor: "#3330E4" }}
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             <img
@@ -23,9 +26,11 @@ function NavBar() {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
-            style={{backgroundColor: "#65c9ff"}}
+            // style={{backgroundColor: "#65c9ff"}}
           >
-            <span className="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            <span className="navbar-toggler-icon">
+              <i class="fas fa-bars"></i>
+            </span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
