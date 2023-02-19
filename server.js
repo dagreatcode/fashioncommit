@@ -34,7 +34,6 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
-// TODO: Add console app.
 
 app.get("/api/config", (req, res) => {
   res.json({
