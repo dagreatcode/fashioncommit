@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -8,7 +9,7 @@ function NavBar() {
         style={{ backgroundColor: "#3330E4" }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             <img
               src="/icon.ico"
               alt="Logo"
@@ -17,7 +18,7 @@ function NavBar() {
               className="d-inline-block align-text-top"
             />
             {/* Fashion Commit */}
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -35,9 +36,13 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
-                  Home
-                </a>
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/UpLoadFile"
+                >
+                  Up Load
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="https://www.bkprofile.ga">
@@ -53,7 +58,7 @@ function NavBar() {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn btn-outline-primary" type="submit">
                 Search
               </button>
             </form>
@@ -82,7 +87,10 @@ function NavBar() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="exampleDropdownFormPassword2" className="form-label">
+              <label
+                htmlFor="exampleDropdownFormPassword2"
+                className="form-label"
+              >
                 Password
               </label>
               <input
