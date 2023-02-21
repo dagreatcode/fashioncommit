@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 export default function Post({id, userId, title, body}) {
   return (
@@ -18,11 +18,11 @@ export default function Post({id, userId, title, body}) {
   );
 }
 
-Post.propTypes = {
-id: PropTypes.number.isRequired,
-userId: PropTypes.number.isRequired,
-title: PropTypes.string.isRequired,
-body: PropTypes.string.isRequired,
-}
+// Post.propTypes = {
+// id: PropTypes.number.isRequired,
+// userId: PropTypes.number.isRequired,
+// title: PropTypes.string.isRequired,
+// body: PropTypes.string.isRequired,
+// }
 
 //rfcp//

@@ -44,7 +44,7 @@ app.get("/api/config", (req, res) => {
 app.get("/apiFun", (req, res) => {
   res.send("API FUN");
   var adminUser = req.params.apiFun;
-  console.log(adminUser);
+  console.log("API works");
   res.end();
 });
 
