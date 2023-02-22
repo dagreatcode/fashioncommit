@@ -1,6 +1,5 @@
 import React from "react";
 import "./Banner.css";
-import Avatar from "avataaars";
 
 export default function Banner() {
   return (
@@ -35,19 +34,6 @@ export default function Banner() {
                 Fashion Commit
               </div>
             </div>
-            <Avatar
-              avatarStyle="Circle"
-              topType="LongHairStraight"
-              accessoriesType="Wayfarers"
-              hairColor="Black"
-              facialHairType="Blank"
-              clotheType="CollarSweater"
-              clotheColor="White"
-              eyeType="Happy"
-              eyebrowType="UpDownNatural"
-              mouthType="Eating"
-              skinColor="DarkBrown"
-            />
           </div>
         </div>
       </div>
