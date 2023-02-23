@@ -5,7 +5,7 @@ import Post from "../Post/Post";
 export default function Posts({ posts, title }) {
   return (
     <>
-      <div className="col-6">
+      <div className="col-12" style={{ textAlign: "center" }}>
         <h1>{title}</h1>
         {posts.map((post) => (
           <Post {...post} key={post.id} />
