@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -8,7 +8,7 @@ function NavBar() {
         className="navbar navbar-expand-lg bg-body-tertiary"
         style={{ backgroundColor: "#3330E4" }}
       >
-        <div className="container-fluid">
+        {/* <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img
               src="/icon.ico"
@@ -17,7 +17,7 @@ function NavBar() {
               height="24"
               className="d-inline-block align-text-top"
             />
-            {/* Fashion Commit */}
+            // Fashion Commit
           </Link>
           <button
             className="navbar-toggler"
@@ -44,11 +44,11 @@ function NavBar() {
                   Up Load
                 </Link>
               </li>
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <a className="nav-link" href="https://www.bkprofile.ga">
                   Portfolio Website
                 </a>
-              </li> */}
+              </li>
             </ul>
 
             <form className="d-flex" role="search">
@@ -126,7 +126,7 @@ function NavBar() {
               </div>
             </div>
         
-        </div>
+        </div> */}
       </nav>
     </>
   );
