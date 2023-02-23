@@ -44,11 +44,11 @@ function NavBar() {
                   Up Load
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="https://www.bkprofile.ga">
                   Portfolio Website
                 </a>
-              </li>
+              </li> */}
             </ul>
 
             <form className="d-flex" role="search">
