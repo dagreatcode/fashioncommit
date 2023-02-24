@@ -30,7 +30,7 @@ function Footer() {
             <p className="card-text">
               Watch my journey & be inspired by my commitment
             </p>
-            <Link href="/" className="btn btn-primary" style={{color: "#3330E4", backgroundColor: "white"}}>
+            <Link href="/" className="btn" style={{color: "#3330E4", backgroundColor: "white"}}>
               Go somewhere
             </Link>
           </div>

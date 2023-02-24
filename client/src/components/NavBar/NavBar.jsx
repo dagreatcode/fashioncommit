@@ -36,7 +36,7 @@ function NavBar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
-                style={{color: "white"}}
+            
                   className="nav-link active"
                   aria-current="page"
                   to="/UpLoadFile"
@@ -69,7 +69,7 @@ function NavBar() {
 
                   style={{margin: "5px", backgroundColor:"white", color: "#3330E4"}}
                   type="button"
-                  className="btn btn-primary dropdown-toggle"
+                  className="btn dropdown-toggle"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                   data-bs-auto-close="outside"
