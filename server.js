@@ -36,6 +36,7 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+app.use("/api/blog", BlogController);
 app.use("/api/user", UserController);
 app.use(AuthController);
 
