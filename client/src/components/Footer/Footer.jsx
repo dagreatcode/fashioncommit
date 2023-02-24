@@ -6,7 +6,7 @@ function Footer() {
     <>
       <div>
         <div className="card text-center">
-          <div className="card-header" style={{backgroundColor: "#bcad76"}}>
+          <div className="card-header" style={{backgroundColor: "white"}}>
             <ul className="nav nav-tabs card-header-tabs" >
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="true" href="/">
@@ -25,12 +25,12 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="card-body" style={{color: "#bcad76", backgroundColor: "#3330E4"}}>
+          <div className="card-body" style={{color: "white", backgroundColor: "#3330E4"}}>
             <h5 className="card-title">Fashion Commit</h5>
             <p className="card-text">
               Watch my journey & be inspired by my commitment
             </p>
-            <Link href="/" className="btn btn-primary" style={{color: "#3330E4", backgroundColor: "#bcad76"}}>
+            <Link href="/" className="btn btn-primary" style={{color: "#3330E4", backgroundColor: "white"}}>
               Go somewhere
             </Link>
           </div>
