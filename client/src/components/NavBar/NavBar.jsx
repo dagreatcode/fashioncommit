@@ -69,7 +69,7 @@ function NavBar() {
 
                   style={{margin: "5px", backgroundColor:"white", color: "#3330E4"}}
                   type="button"
-                  className="btn btn-primary dropdown-toggle"
+                  className="btn dropdown-toggle"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                   data-bs-auto-close="outside"
