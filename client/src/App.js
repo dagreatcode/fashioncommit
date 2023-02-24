@@ -9,6 +9,7 @@ import Login from "./screens/Login/Login";
 import NotFound from "./screens/NotFound/NotFound";
 import UpLoadFile from "./screens/UpLoadPage/UpLoadFile";
 import Landing from "./screens/Landing/Landing";
+import Edit from "./screens/Edit/Edit";
 
 function App() {
   // const [posts,setPosts] = useState([]);
@@ -58,6 +59,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Landing" element={<Landing />} />
+          <Route exact path="/Edit" element={<Edit />} />
           {/* <Route path="/posts/:id" element={<Posts />} /> */}
           {/* <Route path="/register" element={<Register />} /> */}
           <Route path="/login" element={<Login />} />
