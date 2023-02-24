@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const UserController = require("./controllers/UsersController");
+const AuthController = require("./controllers/authController");
 
 const PORT = process.env.PORT || 3001;
 
