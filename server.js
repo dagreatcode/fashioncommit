@@ -34,6 +34,9 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+app.use("/api/user", UserController);
+app.use(AuthController);
+
 
 app.get("/api/config", (req, res) => {
   res.json({
