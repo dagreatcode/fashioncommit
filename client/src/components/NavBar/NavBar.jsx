@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -8,7 +8,7 @@ function NavBar() {
         className="navbar navbar-expand-lg bg-body-tertiary"
         style={{ backgroundColor: "#3330E4" }}
       >
-        {/* <div className="container-fluid">
+        <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img
               src="/icon.ico"
@@ -17,7 +17,6 @@ function NavBar() {
               height="24"
               className="d-inline-block align-text-top"
             />
-            // Fashion Commit
           </Link>
           <button
             className="navbar-toggler"
@@ -30,13 +29,14 @@ function NavBar() {
             // style={{backgroundColor: "#65c9ff"}}
           >
             <span className="navbar-toggler-icon">
-              <i className="fas fa-bars"></i>
+              <i className="fas fa-bars"/>
             </span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
+                style={{color: "white"}}
                   className="nav-link active"
                   aria-current="page"
                   to="/UpLoadFile"
@@ -45,9 +45,9 @@ function NavBar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="https://www.bkprofile.ga">
+                {/* <a className="nav-link" href="https://www.bkprofile.ga">
                   Portfolio Website
-                </a>
+                </a> */}
               </li>
             </ul>
 
@@ -58,7 +58,7 @@ function NavBar() {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-primary" type="submit">
+              <button className="btn btn-outline-primary" style={{backgroundColor: "white",  color: "#3330E4" }} type="submit">
                 Search
               </button>
             </form>
@@ -66,7 +66,8 @@ function NavBar() {
               <br />
               <div className="dropdown">
                 <button
-                  style={{margin: "5px"}}
+
+                  style={{margin: "5px", backgroundColor:"white", color: "#3330E4"}}
                   type="button"
                   className="btn btn-primary dropdown-toggle"
                   data-bs-toggle="dropdown"
@@ -126,7 +127,7 @@ function NavBar() {
               </div>
             </div>
         
-        </div> */}
+        </div>
       </nav>
     </>
   );

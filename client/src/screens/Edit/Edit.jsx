@@ -1,12 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+// import PropTypes from 'prop-types'
+import EModal from "../../components/UpLoadModal/Edit";
 
-const Edit = props => {
+const Edit = () => {
   return (
-    <div>Edit</div>
-  )
-}
+    <>
+      <h1>Edit Page</h1>
+      <EModal />
+    </>
+  );
+};
 
-Edit.propTypes = {}
+// Edit.propTypes = {}
 
-export default Edit
+export default Edit;

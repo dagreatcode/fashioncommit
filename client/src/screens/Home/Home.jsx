@@ -6,14 +6,14 @@ import Footer from "../../components/Footer/Footer"
 import Banner from "../../components/Banner/Banner"
 
 function Home() {
-  const posts = useSelector((state) => state.articles);
+  // const posts = useSelector((state) => state.articles);
   const myPosts = useSelector((state) => state.myArticles);
   return (
     <div className="container">
       <div className="row">
         <Nav/>
         <Banner/>
-        <Posts posts={posts} title="All Posts" />
+        {/* <Posts posts={posts} title="All Posts" /> */}
         <Posts posts={myPosts} title="My Posts" />
         <Footer/>
       </div>
