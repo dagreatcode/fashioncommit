@@ -36,7 +36,7 @@ function NavBar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
-                style={{color: "white"}}
+            
                   className="nav-link active"
                   aria-current="page"
                   to="/UpLoadFile"
