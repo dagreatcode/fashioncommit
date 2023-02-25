@@ -63,50 +63,50 @@ router.post("/login", (req, res) => {
     });
 });
 
-router.post("/signUp", (req, res) => {
-  const data = req.body;
-  const email = data.email;
-  const password = data.password;
+// router.post("/signUp", (req, res) => {
+//   const data = req.body;
+//   const email = data.email;
+//   const password = data.password;
 
-  if (!email || !password) {
-    res.status(400);
-  } else {
-    bcrypt
-      .hash(req.body.password, 10)
-      .then((hashedPassword) => {
-        db.User.create({
-          email: req.body.email,
-          password: hashedPassword,
-        })
-          .then((newUser) => {
-            const token = jwt.sign(
-              { email: newUser.email },
-              process.env.SECRET
-            );
-            res.json({
-              err: false,
-              data: token,
-              message: "Successfully signed up.",
-            });
-          })
-          .catch((err) => {
-            console.log(err);
-            res.status(500).json({
-              error: true,
-              data: null,
-              message: "Unable to signUp.",
-            });
-          });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json({
-          error: true,
-          data: null,
-          message: "Password?",
-        });
-      });
-  }
-});
+//   if (!email || !password) {
+//     res.status(400);
+//   } else {
+//     bcrypt
+//       .hash(req.body.password, 10)
+//       .then((hashedPassword) => {
+//         db.User.create({
+//           email: req.body.email,
+//           password: hashedPassword,
+//         })
+//           .then((newUser) => {
+//             const token = jwt.sign(
+//               { email: newUser.email },
+//               process.env.SECRET
+//             );
+//             res.json({
+//               err: false,
+//               data: token,
+//               message: "Successfully signed up.",
+//             });
+//           })
+//           .catch((err) => {
+//             console.log(err);
+//             res.status(500).json({
+//               error: true,
+//               data: null,
+//               message: "Unable to signUp.",
+//             });
+//           });
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//         res.status(500).json({
+//           error: true,
+//           data: null,
+//           message: "Password?",
+//         });
+//       });
+//   }
+// });
 
 module.exports = router;

@@ -3,29 +3,29 @@ const router = express.Router();
 const db = require("../models");
 
 router.get("/", (req, res) => {
-    db.Blogs.find({})
-      // .populate("Blogs")
-      .then((foundBlogs) => {
-        res.json(foundBlogs);
+    db.Blog.find({})
+      // .populate("Blog")
+      .then((foundBlog) => {
+        res.json(foundBlog);
       });
   });
 
   router.post("/", (req, res) => {
-    db.Blogs.create(req.body).then((newBlogs) => {
-      res.json(newBlogs);
+    db.Blog.create(req.body).then((newBlog) => {
+      res.json(newBlog);
     });
   });
   
   router.put("/:id", (req, res) => {
-    db.Blogs.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
-      (updateBlogs) => {
-        res.json(updateBlogs);
+    db.Blog.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
+      (updateBlog) => {
+        res.json(updateBlog);
       }
     );
   });
   
   router.delete("/:id", (req, res) => {
-    db.Blogs.findByIdAndDelete(req.params.id).then((result) => {
+    db.Blog.findByIdAndDelete(req.params.id).then((result) => {
       res.json(result);
     });
   });
