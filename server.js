@@ -2,6 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+// const UserController = require("./controllers/UsersController");
+// const AuthController = require("./controllers/authController");
+// const BlogController = require("./controllers/BlogController");
 
 const PORT = process.env.PORT || 3001;
 
@@ -34,6 +37,9 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+// app.use("/api/blog", BlogController);
+// app.use("/api/user", UserController);
+// app.use(AuthController);
 
 app.get("/api/config", (req, res) => {
   res.json({

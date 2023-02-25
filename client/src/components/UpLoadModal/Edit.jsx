@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 function Edit() {
   return (
     <>
+    <div className="modal-body">
+  
+  {/* <p><a href="#" data-bs-toggle="tooltip" title="Tooltip">This link</a> and <a href="#" data-bs-toggle="tooltip" title="Tooltip">that link</a> have tooltips on hover.</p> */}
+</div>
       {/* <!-- Button trigger modal --> */}
       <button
         type="button"
-        class="btn btn-primary"
+        className="btn btn-primary"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
@@ -37,19 +41,8 @@ function Edit() {
             </div>
             <div className="modal-body">
               <div className="modal-body">
-                <h2 className="fs-5">Popover in a modal</h2>
-                <p>
-                  This{" "}
-                  <button
-                    className="btn btn-secondary"
-                    data-bs-toggle="popover"
-                    title="Popover title"
-                    data-bs-content="Popover body content is set in this attribute."
-                  >
-                    button
-                  </button>{" "}
-                  triggers a popover on click.
-                </p>
+              <h2 class="fs-5">Popover in a modal</h2>
+  <p>This <button class="btn btn-secondary" data-bs-toggle="popover" title="Popover title" data-bs-content="Popover body content is set in this attribute.">button</button> triggers a popover on click.</p>
                 <hr />
                 <div>
                   <label for="formFileLg" className="form-label">
@@ -89,7 +82,7 @@ function Edit() {
                     This link
                   </Link>{" "}
                   and{" "}
-                  <Link href="#" data-bs-toggle="tooltip" title="Tooltip">
+                  <Link to="" data-bs-toggle="tooltip" title="Tooltip">
                     that link
                   </Link>{" "}
                   have tooltips on hover.
