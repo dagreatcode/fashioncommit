@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const path = require("path")
 const multer = require("multer");
 
 const storage = multer.diskStorage({
@@ -14,12 +14,13 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-router.set("view engine", "ejs");
 
-router.get("/upload", (req, res) => {
-  res.render("upload");
+// router.get("/upload", (req, res) => {
+//   res.render("upload");
+// });
+
+router.post("/upload", upload.single("image"), (req, res, next) => {
+  res.send("Image Uploaded");
 });
 
-router.post("/upload", upload.single("image"), (req, res) => {
-  res.render("Image Uploaded");
-});
+module.exports = router;
