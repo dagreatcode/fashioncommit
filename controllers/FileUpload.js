@@ -33,6 +33,13 @@ router.post("/postBlog", (req, res) => {
   };
   db.Blog.create(newPost).then(() => {
     res.json(newPost);
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).json({
+      err: true,
+      data: null,
+      message: "Failed to upload",
+    });
   });
 });
 
