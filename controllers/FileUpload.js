@@ -25,23 +25,23 @@ router.post("/upload", upload.single("image"), (req, res, next) => {
   res.send("Image Uploaded");
 });
 
-router.post("/postBlog", (req, res) => {
-  const newPost = {
-    image: req.body.image,
-    title: req.body.title,
-    post: req.body.post,
-  };
-  db.Blog.create(newPost).then(() => {
-    res.json(newPost);
-  }).catch((err) => {
-    console.log(err);
-    res.status(500).json({
-      err: true,
-      data: null,
-      message: "Failed to upload",
-    });
-  });
-});
+// router.post("/", (req, res) => {
+//   const newPost = {
+//     image: req.body.image,
+//     title: req.body.title,
+//     post: req.body.post,
+//   };
+//   db.Blog.create(newPost).then(() => {
+//     res.json(newPost);
+//   }).catch((err) => {
+//     console.log(err);
+//     res.status(500).json({
+//       err: true,
+//       data: null,
+//       message: "Failed to upload",
+//     });
+//   });
+// });
 
 // router.post("/blogPost", upload.single("image"), (req, res) => {
 //   const newPost = {
@@ -117,6 +117,13 @@ router.post("/", upload.single("image"), (req, res) => {
     // console.log("newBlog", newBlog);
     // console.log("req.body", req.body);
     // console.log("path", req.file.path);
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).json({
+      err: true,
+      data: null,
+      message: "Failed to upload",
+    });
   });
 });
 
