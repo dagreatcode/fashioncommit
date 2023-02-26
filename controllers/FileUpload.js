@@ -1,0 +1,108 @@
+const express = require("express");
+const router = express.Router();
+const path = require("path");
+const multer = require("multer");
+const db = require("../models");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "Images");
+  },
+  filename: (req, file, cb) => {
+    console.log(file);
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+
+const upload = multer({ storage: storage });
+
+router.get("/upload", (req, res) => {
+  //   res.render("upload");
+  res.send("helloWorld");
+});
+
+router.post("/upload", upload.single("image"), (req, res, next) => {
+  res.send("Image Uploaded");
+});
+
+router.post("/postBlog", (req,res)=>{
+    const newPost = {
+        image: req.body.image,
+        title: req.body.title,
+        post: req.body.post
+      };
+      db.Blog.create(newPost).then(() => {
+        res.json(newPost);
+      });
+})
+
+// router.post("/blogPost", upload.single("image"), (req, res) => {
+//   const newPost = {
+//     image: req.body.image,
+//     title: req.body.title,
+//     post: req.body.post
+//   };
+//   db.Blog.create(newPost).then(() => {
+//     res.json(newPost);
+//   });
+//   //   try{
+
+//   //   }catch(err){
+
+//   //   }
+// });
+
+// router.post("/blogPost", upload.single("image"),(req, res) => {
+//   db.Blog.create(req.body).then((newUser) => {
+//     res.json(newUser);
+//       res.send("Image Uploaded");
+//   });
+// });
+
+// router.post("/blogPost", async (req, res) => {
+//   const newPost = new Blog(req.body);
+//   try {
+//     const savePost = await newPost.save();
+//     res.status(200).json(savePost);
+//   } catch (error) {
+//     res.status(500).json(error);
+//   }
+// });
+
+// router.post("/blogPost", (req, res) => {
+
+//   db.Blog.create({
+//     image: req.body.image,
+//     title: req.body.title,
+//     post: req.body.post
+//   })
+// });
+
+// router.post("/blogPost", upload.single("image"), (req, res, next) => {
+//   db.Blog.create(Blog).then((newBlog) => {
+//     console.log(newBlog);
+//     res.json(newBlog);
+//   });
+//   res
+//     .json({
+//       err: false,
+//       data: newBlog,
+//       message: "Successfully added Post.",
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json({
+//         error: true,
+//         data: null,
+//         message: "Unable to add Post.",
+//       });
+//     });
+// });
+
+router.post("/blogPost", upload.single("image"),(req, res) => {
+  db.Blog.create(req.body).then((newBlog) => {
+    res.json(newBlog);
+  });
+});
+
+module.exports = router;

@@ -3,15 +3,18 @@ const Schema = mongoose.Schema;
 
 const blogSchema = new Schema({
   // url string for thumbnail image
-  thumbnail: {
-    type: String,
-    default: "",
+  image: {
+    type: String
+    // default: ""
   },
   title: {
     type: String,
-    required: true,
+    required: true
   },
-  description: [String],
+  post: {
+    type: String,
+    required: "true"
+  },
 });
 
 const Blog = mongoose.model("Blog", blogSchema);

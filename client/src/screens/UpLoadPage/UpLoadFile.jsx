@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// const [toGo, setToGo] = useState({
+//   image: "",
+//   title: "",
+//   post: ""
+// });
+
 export default function UpLoadFile() {
   return (
+
+
     <>
       {/* <!-- Button trigger modal --> */}
       <button
@@ -24,6 +32,8 @@ export default function UpLoadFile() {
       >
         <div className="modal-dialog">
           <div className="modal-content">
+          <form method="POST" action="/blogPost" enctype="multipart/form-data">
+
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Modal title
@@ -51,32 +61,37 @@ export default function UpLoadFile() {
                   triggers a popover on click.
                 </p>
                 <hr />
+                
                 <div>
                   <label for="formFileLg" className="form-label">
                     Import Image
                   </label>
                   <input
+                    type="file"
+                    name="image"
                     className="form-control form-control-lg"
                     id="formFileLg"
-                    type="file"
                   />
                 </div>
                 <form>
                   <div className="mb-3">
                     <label for="recipient-name" className="col-form-label">
-                      Recipient:
+                      Title:
                     </label>
                     <input
-                      type="text"
+                    name="title"
+                      type="title"
                       className="form-control"
                       id="recipient-name"
                     />
                   </div>
                   <div className="mb-3">
                     <label for="message-text" className="col-form-label">
-                      Message:
+                      Post:
                     </label>
                     <textarea
+                    name="post"
+                    type="post"
                       className="form-control"
                       id="message-text"
                     ></textarea>
@@ -104,13 +119,19 @@ export default function UpLoadFile() {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Save
               </button>
             </div>
+            </form>
           </div>
         </div>
       </div>
+      {/* <h1>File Uploader</h1>
+      <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="image"/>
+        <input type="submit" />
+      </form> */}
     </>
   );
 }
