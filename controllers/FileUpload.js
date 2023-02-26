@@ -25,16 +25,16 @@ router.post("/upload", upload.single("image"), (req, res, next) => {
   res.send("Image Uploaded");
 });
 
-router.post("/postBlog", (req,res)=>{
-    const newPost = {
-        image: req.body.image,
-        title: req.body.title,
-        post: req.body.post
-      };
-      db.Blog.create(newPost).then(() => {
-        res.json(newPost);
-      });
-})
+router.post("/postBlog", (req, res) => {
+  const newPost = {
+    image: req.body.image,
+    title: req.body.title,
+    post: req.body.post,
+  };
+  db.Blog.create(newPost).then(() => {
+    res.json(newPost);
+  });
+});
 
 // router.post("/blogPost", upload.single("image"), (req, res) => {
 //   const newPost = {
@@ -99,16 +99,17 @@ router.post("/postBlog", (req,res)=>{
 //     });
 // });
 
-router.post("/blogPost", upload.single("image"),(req, res) => {
+router.post("/blogPost", upload.single("image"), (req, res) => {
   db.Blog.create({
-        image: req.file.path,
+    image: req.file.path,
     title: req.body.title,
-    post: req.body.post
+    post: req.body.post,
   }).then((newBlog) => {
-    res.json(newBlog);
-    console.log("newBlog", newBlog)
-    console.log("req.body", req.body)
-    console.log("path", req.file.path)
+    // res.json(newBlog);
+    res.send("Post Uploaded");
+    // console.log("newBlog", newBlog);
+    // console.log("req.body", req.body);
+    // console.log("path", req.file.path);
   });
 });
 
