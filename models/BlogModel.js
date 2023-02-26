@@ -4,17 +4,19 @@ const Schema = mongoose.Schema;
 const blogSchema = new Schema({
   // url string for thumbnail image
   image: {
-    type: String
+    type: String,
+    required: false,
     // default: ""
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   post: {
     type: String,
-    required: "true"
+    required: "true",
   },
+  date: { type: Date, default: Date.now },
 });
 
 const Blog = mongoose.model("Blog", blogSchema);
