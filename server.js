@@ -41,7 +41,7 @@ connection.on("error", (err) => {
 // app.use("/api/blog", BlogController);
 // app.use("/api/user", UserController);
 // app.use(AuthController);
-app.use(FileUpload);
+app.use("/blogPost", FileUpload);
 
 app.get("/api/config", (req, res) => {
   res.json({

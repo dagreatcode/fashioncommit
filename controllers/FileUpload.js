@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
     cb(null, "Images");
   },
   filename: (req, file, cb) => {
-    console.log(file);
+    // console.log(file);
     cb(null, Date.now() + path.extname(file.originalname));
   },
 });
@@ -99,7 +99,7 @@ router.post("/postBlog", (req, res) => {
 //     });
 // });
 
-router.post("/blogPost", upload.single("image"), (req, res) => {
+router.post("/", upload.single("image"), (req, res) => {
   db.Blog.create({
     image: req.file.path,
     title: req.body.title,
