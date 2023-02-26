@@ -100,8 +100,15 @@ router.post("/postBlog", (req,res)=>{
 // });
 
 router.post("/blogPost", upload.single("image"),(req, res) => {
-  db.Blog.create(req.body).then((newBlog) => {
+  db.Blog.create({
+        image: req.file.path,
+    title: req.body.title,
+    post: req.body.post
+  }).then((newBlog) => {
     res.json(newBlog);
+    console.log("newBlog", newBlog)
+    console.log("req.body", req.body)
+    console.log("path", req.file.path)
   });
 });
 
