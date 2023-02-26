@@ -105,4 +105,14 @@ router.post("/blogPost", upload.single("image"),(req, res) => {
   });
 });
 
+// router.post("/blogPost", upload.single("image"),(req, res) => {
+//     const newPost = {
+//         image: req.body.image,
+//         title: req.body.title,
+//         post: req.body.post
+//       };
+//       db.Blog.create(newPost).then(() => {
+//         res.json(newPost);
+//       });
+// });
 module.exports = router;
