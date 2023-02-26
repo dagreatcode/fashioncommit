@@ -1,0 +1,12 @@
+GET http://localhost:3001/upload
+
+###
+
+POST  http://localhost:3001/blogPost
+Content-Type: application/json
+
+{
+    "image": "ygjhgjjh",
+    "title": "hgkjgkjgkj",
+    "post": "jgjkgkj"
+}
