@@ -38,22 +38,23 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+
+// app.get("/api/config", (req, res) => {
+//   res.json({
+//     success: true,
+//   });
+// });
+
+// app.get("/apiFun", (req, res) => {
+//   res.send("API FUN");
+//   console.log("API works");
+//   res.end();
+// });
+
 // app.use("/api/blog", BlogController);
 // app.use("/api/user", UserController);
 // app.use(AuthController);
 app.use("/blogPost", FileUpload);
-
-app.get("/api/config", (req, res) => {
-  res.json({
-    success: true,
-  });
-});
-
-app.get("/apiFun", (req, res) => {
-  res.send("API FUN");
-  console.log("API works");
-  res.end();
-});
 
 // app.post("/api/users", (req, res) => {
 //   var newUser = req.body;
