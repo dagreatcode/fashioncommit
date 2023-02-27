@@ -1,4 +1,4 @@
-GET http://localhost:3001/upload
+GET http://localhost:3001/blogPost/upload
 
 ###
 
