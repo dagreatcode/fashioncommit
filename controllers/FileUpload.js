@@ -4,7 +4,6 @@ const path = require("path");
 const multer = require("multer");
 const db = require("../models");
 
-
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "Images");
@@ -26,12 +25,15 @@ router.post("/upload", upload.single("image"), (req, res) => {
   res.send("Image Uploaded");
 });
 
+// const c = { prompt: a.body.prompt };
+
 router.post("/", upload.single("image"), (req, res) => {
-  db.Blog.create({
+  const c = {
     image: req.file.path,
     title: req.body.title,
-    post: req.body.post
-  })
+    post: req.body.post,
+  };
+  db.Blog.create(c)
     .then((newUser) => {
       res.json(newUser);
       console.log(newUser);
@@ -46,6 +48,27 @@ router.post("/", upload.single("image"), (req, res) => {
       });
     });
 });
+
+// router.post("/", upload.single("image"), (req, res) => {
+//   db.Blog.create({
+//     image: req.file.path,
+//     title: req.body.title,
+//     post: req.body.post
+//   })
+//     .then((newUser) => {
+//       res.json(newUser);
+//       console.log(newUser);
+//       // res.send("Image Uploaded");
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json({
+//         err: true,
+//         data: null,
+//         message: "Failed to upload",
+//       });
+//     });
+// });
 
 // router.post("/", (req, res) => {
 //   const newPost = {
@@ -92,7 +115,7 @@ router.post("/", upload.single("image"), (req, res) => {
   db.Blog.create({
     image: req.file.path,
     title: req.body.title,
-    post: req.body.post
+    post: req.body.post,
   })
     .then((newUser) => {
       res.json(newUser);

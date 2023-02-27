@@ -18,6 +18,8 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+mongoose.set("strictQuery", false);
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/fashioncommit_db",
   {
@@ -37,7 +39,6 @@ connection.on("connected", () => {
 connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
-
 
 // app.get("/api/config", (req, res) => {
 //   res.json({
