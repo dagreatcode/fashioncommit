@@ -52,41 +52,42 @@ export default function UpLoadFile() {
                  
                   <hr />
 
-                  <div>
-                    <label htmlFor="formFileLg" className="form-label">
-                      Import Image
-                    </label>
-                    <input
-                      type="file"
-                      name="image"
-                      className="form-control form-control-lg"
-                      id="formFileLg"
-                    />
-                  </div>
+
 
                   <div className="mb-3">
-                    <label htmlFor="recipient-name" className="col-form-label">
+                    <label htmlFor="title" className="col-form-label">
                       Title:
                     </label>
                     <input
                       name="title"
                       type="text"
                       className="form-control"
-                      id="recipient-name"
+                      id="title"
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="message-text" className="col-form-label">
+                    <label htmlFor="post" className="col-form-label">
                       Post:
                     </label>
                     <textarea
                       name="post"
                       type="text"
                       className="form-control"
-                      id="message-text"
+                      id="post"
                     ></textarea>
                   </div>
-
+                  <div>
+                    <label htmlFor="file" className="form-label">
+                      Import Image
+                    </label>
+                    <input
+                      type="file"
+                      name="image"
+                      className="form-control form-control-lg"
+                      id="file"
+                      accept=".jpg"
+                    />
+                  </div>
                   <hr />
                   <h2 className="fs-5">Tooltips in a modal</h2>
                   <p>
