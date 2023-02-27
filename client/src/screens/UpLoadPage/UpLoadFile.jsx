@@ -32,7 +32,7 @@ export default function UpLoadFile() {
           <div className="modal-content">
             <form
               method="POST"
-              action="/blogPost"
+              action="/blogPost/"
               encType="multipart/form-data"
             >
               <div className="modal-header">
