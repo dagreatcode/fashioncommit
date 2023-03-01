@@ -30,9 +30,9 @@ router.post("/upload", upload.single("image"), (req, res) => {
 
 router.post("/", upload.single("image"), (req, res) => {
   const c = { 
-    image: req.file.path,
     title: req.body.title,
-    post: req.body.post
+    post: req.body.post,
+    image: req.file.path
    };
   db.Blog.create(c)
     .then((newUser) => {
