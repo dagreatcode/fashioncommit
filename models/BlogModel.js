@@ -10,11 +10,11 @@ const blogSchema = new Schema({
   },
   title: {
     type: String,
-    required: true,
+    required: false,
   },
   post: {
     type: String,
-    required: "true",
+    required: "false",
   },
   date: { type: Date, default: Date.now },
 });
