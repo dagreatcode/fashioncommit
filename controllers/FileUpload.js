@@ -7,10 +7,10 @@ const db = require("../models");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, __dirname, "Images");
+    cb(null, __dirname, "/Images");
   },
   filename: (req, file, cb) => {
-    // console.log(file);
+    console.log(file);
     cb(null, Date.now() + path.extname(file.originalname));
   },
 });
@@ -29,10 +29,12 @@ router.post("/upload", upload.single("image"), (req, res) => {
 // const c = { prompt: a.body.prompt };
 
 router.post("/", upload.single("image"), (req, res) => {
+  const data = req.body;
+  const data2 = req.file;
   const c = { 
-    image: req.file.path,
-    title: req.body.title,
-    post: req.body.post
+    image: data2.path,
+    title: data.title,
+    post: data.post
    };
   db.Blog.create(c)
     .then((newUser) => {
