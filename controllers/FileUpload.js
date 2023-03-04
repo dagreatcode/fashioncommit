@@ -4,7 +4,6 @@ const path = require("path");
 const multer = require("multer");
 const db = require("../models");
 
-
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "Images");
@@ -29,13 +28,14 @@ router.post("/upload", upload.single("image"), (req, res) => {
 // const c = { prompt: a.body.prompt };
 
 router.post("/", upload.single("image"), (req, res) => {
-  const data = req.body;
-  const data2 = req.file;
-  const c = { 
-    image: data2.destination + "/" + data2.filename,
-    title: data.title,
-    post: data.post
-   };
+  const data = req.body.title;
+  const data2 = req.body.post;
+  const data3 = req.file.filename;
+  const c = {
+    image: data3,
+    title: data,
+    post: data2,
+  };
   db.Blog.create(c)
     .then((newUser) => {
       res.json(newUser);
@@ -119,7 +119,7 @@ router.post("/back", upload.single("image"), (req, res) => {
   db.Blog.create({
     image: req.file.path,
     title: req.body.title,
-    post: req.body.post
+    post: req.body.post,
   })
     .then((newUser) => {
       res.json(newUser);
