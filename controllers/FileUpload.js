@@ -32,7 +32,7 @@ router.post("/", upload.single("image"), (req, res) => {
   const data = req.body;
   const data2 = req.file;
   const c = { 
-    image: data2.destination + "/" + data2.filename,
+    image: data2.filename,
     title: data.title,
     post: data.post
    };
