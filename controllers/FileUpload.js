@@ -40,8 +40,8 @@ router.post("/", upload.single("image"), (req, res) => {
   db.Blog.create(c)
     .then((newUser) => {
       res.json(newUser);
-      console.log(newUser);
-      console.log(c)
+      // console.log(newUser);
+      // console.log(c)
       // res.send("Image Uploaded");
     })
     .catch((err) => {
