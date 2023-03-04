@@ -32,15 +32,16 @@ router.post("/", upload.single("image"), (req, res) => {
   const data2 = req.body.post;
   const data3 = req.file.filename;
   const c = {
-    image: data3,
+   
     title: data,
     post: data2,
+    image: data3
   };
   db.Blog.create(c)
     .then((newUser) => {
       res.json(newUser);
-      // console.log(newUser);
-      // console.log(req.file)
+      console.log(newUser);
+      console.log(c)
       // res.send("Image Uploaded");
     })
     .catch((err) => {
