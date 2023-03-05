@@ -37,8 +37,8 @@ router.post("/", upload.single("image"), (req, res) => {
     image: data3,
   };
   db.Blog.create(c)
-    .then((c) => {
-      res.json(c);
+    .then((newUser) => {
+      res.json(newUser);
       // console.log(newUser);
       // console.log(c)
       // res.send("Image Uploaded");
