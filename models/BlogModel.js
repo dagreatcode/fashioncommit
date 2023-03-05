@@ -3,11 +3,6 @@ const Schema = mongoose.Schema;
 
 const blogSchema = new Schema({
   // url string for thumbnail image
-  image: {
-    type: String,
-    required: false,
-    // default: ""
-  },
   title: {
     type: String,
     required: false,
@@ -15,6 +10,11 @@ const blogSchema = new Schema({
   post: {
     type: String,
     required: "false",
+  },
+  image: {
+    type: String,
+    required: false,
+    // default: ""
   },
   date: { type: Date, default: Date.now },
 });
