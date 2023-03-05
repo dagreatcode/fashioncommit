@@ -31,9 +31,9 @@ router.post("/upload", upload.single("image"), (req, res) => {
 // const c = { prompt: a.body.prompt };
 
 router.post("/", upload.single("image"), (req, res) => {
-  const data = req.body.title;
-  const data2 = req.body.post;
-  const data3 = req.file.originalname;
+  const data = `${req.body.title}`;
+  const data2 = `${req.body.post}`;
+  const data3 = `${req.file.originalname}`;
   const c = {
     title: `${data}`,
     post: `${data2}`,
