@@ -41,8 +41,8 @@ router.post("/", upload.single("image"), (req, res) => {
     image: `${data3}`,
   };
   db.Blog.create(c)
-    .then((newUser) => {
-      res.json(newUser);
+    .then((newBlog) => {
+      res.json(newBlog);
       // console.log(newUser);
       // console.log(c)
       // res.send("Image Uploaded");
@@ -57,15 +57,51 @@ router.post("/", upload.single("image"), (req, res) => {
     });
 });
 
+router.get("/post", (req, res) => {
+  db.Blog.find({})
+    // .populate("user")
+    .then((foundPosts) => {
+      res.json(foundPosts);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        err: true,
+        data: null,
+        message: "Failed to get all post",
+      });
+    });
+});
+
+router.get("/post/:id", (req, res) => {
+  db.Blog.findOne({ _id: req.params.id }).then((foundBlogs) => {
+    res.json(foundBlogs);
+  });
+});
+
+router.put("/post/:id", (req, res) => {
+  db.Blog.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
+    (updateBlog) => {
+      res.json(updateBlog);
+    }
+  );
+});
+
+router.delete("/post/:id", (req, res) => {
+  db.Blog.findByIdAndDelete(req.params.id).then((result) => {
+    res.json(result);
+  });
+});
+
 // router.post("/", upload.single("image"), (req, res) => {
 //   db.Blog.create({
 //     image: req.file.path,
 //     title: req.body.title,
 //     post: req.body.post
 //   })
-//     .then((newUser) => {
-//       res.json(newUser);
-//       console.log(newUser);
+//     .then((newBlog) => {
+//       res.json(newBlog);
+//       console.log(newBlog);
 //       // res.send("Image Uploaded");
 //     })
 //     .catch((err) => {

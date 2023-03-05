@@ -118,11 +118,11 @@ export default function UpLoadFile() {
           </div>
         </div>
       </div>
-      <h1>File Uploader</h1>
+      {/* <h1>File Uploader</h1>
       <form method="POST" action="/upload" enctype="multipart/form-data">
         <input type="file" name="image"/>
         <input type="submit" />
-      </form>
+      </form> */}
     </>
   );
 }
