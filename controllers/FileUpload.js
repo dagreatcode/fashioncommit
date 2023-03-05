@@ -10,7 +10,10 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     console.log(file);
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    cb(
+      null,
+      `${file.filename}_${Date.now()}${path.extname(file.originalname)}`
+    );
   },
 });
 
@@ -32,9 +35,9 @@ router.post("/", upload.single("image"), (req, res) => {
   const data2 = req.body.post;
   const data3 = req.file.originalname;
   const c = {
-    title: data,
-    post: data2,
-    image: data3,
+    title: `${data}`,
+    post: `${data2}`,
+    image: `${data3}`,
   };
   db.Blog.create(c)
     .then((newUser) => {
