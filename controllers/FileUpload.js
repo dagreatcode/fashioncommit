@@ -6,14 +6,15 @@ const db = require("../models");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "/images");
+    cb(null, "images");
   },
   filename: (req, file, cb) => {
     console.log(file);
     cb(
       null,
       // `${file.filename}_${Date.now()}${path.extname(file.originalname)}`
-      Date.now() + path.extname(file.originalname)
+      // Date.now() + path.extname(file.originalname)
+      `/${Date.now()}${path.extname(file.originalname)}`
     );
   },
 });
