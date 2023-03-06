@@ -3,12 +3,17 @@ import React from "react";
 // import PropTypes from 'prop-types'
 
 export default function Post({ _id, image, title, post }) {
-
   return (
     <>
       <h1>{title}</h1>
-      <strong>Image</strong> {image}
-      <img src={image} alt="imageTook" />
+      <strong>Image</strong>
+      <img
+        src={image}
+        alt="imageTook"
+        width="30"
+        height="24"
+        className="d-inline-block align-text-top"
+      />
       <p>
         <strong>Post ID</strong> {_id}
       </p>
