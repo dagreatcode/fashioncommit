@@ -10,8 +10,8 @@ export default function Post({ _id, image, title, post }) {
       <img
         src={image}
         alt="imageTook"
-        width="30"
-        height="24"
+        width="150"
+        height="150"
         className="d-inline-block align-text-top"
       />
       <p>
