@@ -1,20 +1,28 @@
-import React from 'react'
+import React from "react";
 // import PropTypes from 'prop-types'
 
-export default function Post({id, userId, title, body}) {
+export default function Post({ _id, image, title, post }) {
   return (
     <>
-    <h1>{title}</h1>
-    <p>
-      <strong>UserId</strong> {userId}
-    </p>
-    <p>
-      <strong>Post Id</strong> {id}
-    </p>
-    <p>
-      {body}
-    </p>
-  </>
+      <h1>{title}</h1>
+      <p>
+        <strong>Image</strong>
+        <img
+          src={image}
+          alt="Logo"
+          width="30"
+          height="24"
+          className="d-inline-block align-text-top"
+        />
+      </p>
+      <p>
+        <strong>Post ID</strong> {_id}
+      </p>
+      <p>
+        <h3>Post</h3>
+        {post}
+      </p>
+    </>
   );
 }
 
