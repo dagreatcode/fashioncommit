@@ -1,20 +1,14 @@
 import React from "react";
+// import imgs from "../../"
 // import PropTypes from 'prop-types'
 
 export default function Post({ _id, image, title, post }) {
+
   return (
     <>
       <h1>{title}</h1>
-      <p>
-        <strong>Image</strong>
-        <img
-          src={image}
-          alt="Logo"
-          width="30"
-          height="24"
-          className="d-inline-block align-text-top"
-        />
-      </p>
+      <strong>Image</strong> {image}
+      <img src={image} alt="imageTook" />
       <p>
         <strong>Post ID</strong> {_id}
       </p>
