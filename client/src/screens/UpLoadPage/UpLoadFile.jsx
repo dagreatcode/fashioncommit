@@ -85,7 +85,7 @@ export default function UpLoadFile() {
                       name="image"
                       className="form-control form-control-lg"
                       id="file"
-                      accept=".jpg"
+                      // accept=".jpg"
                     />
                   </div>
                   <hr />
