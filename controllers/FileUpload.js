@@ -36,7 +36,7 @@ router.post("/", upload.single("image"), (req, res) => {
   // console.log(req.file)
   const data = `${req.body.title}`;
   const data2 = `${req.body.post}`;
-  const data3 = `${req.file.filename}`;
+  const data3 = `${req.file.path}`;
   const c = {
     title: `${data}`,
     post: `${data2}`,

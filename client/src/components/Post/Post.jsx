@@ -1,5 +1,4 @@
 import React from "react";
-// import imgs from "../../"
 import PropTypes from "prop-types";
 
 export default function Post({ image, title, post }) {
@@ -13,9 +12,6 @@ export default function Post({ image, title, post }) {
         height="350"
         className="d-inline-block align-text-top"
       />
-      {/* <p>
-        <strong>Post ID</strong> {_id}
-      </p> */}
       <p>{post}</p>
       <br />
     </>
