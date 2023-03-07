@@ -1,35 +1,37 @@
 import React from "react";
 // import imgs from "../../"
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-export default function Post({ _id, image, title, post }) {
+export default function Post({ image, title, post }) {
   return (
     <>
-      <h1>{title}</h1>
+      <h3>{title}</h3>
       <strong>Image</strong>
       <img
         src={image}
-        alt="imageTook"
-        width="300"
-        height="300"
+        alt="blog post"
+        width="400"
+        height="400"
         className="d-inline-block align-text-top"
       />
-      <p>
+      {/* <p>
         <strong>Post ID</strong> {_id}
-      </p>
+      </p> */}
       <p>
-        <h3>Post</h3>
+        {/* <h4>Post</h4> */}
         {post}
       </p>
+      <hr />
     </>
   );
 }
 
-// Post.propTypes = {
+Post.propTypes = {
 // id: PropTypes.number.isRequired,
 // userId: PropTypes.number.isRequired,
-// title: PropTypes.string.isRequired,
-// body: PropTypes.string.isRequired,
-// }
+title: PropTypes.string.isRequired,
+post: PropTypes.string.isRequired,
+image: PropTypes.string.isRequired,
+}
 
 //rfcp//
