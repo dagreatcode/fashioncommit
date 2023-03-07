@@ -14,7 +14,7 @@ function Home() {
         <Nav/>
         <Banner/>
         {/* <Posts posts={posts} title="All Posts" /> */}
-        <Posts posts={myPosts} title="My Posts" />
+        <Posts posts={myPosts} title="🥳New Post Every Week✒️" />
         <Footer/>
       </div>
     </div>

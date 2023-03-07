@@ -32,7 +32,7 @@ export default function UpLoadFile() {
           <div className="modal-content">
             <form
               method="POST"
-              action="/blogPost"
+              action="/blogPost/"
               encType="multipart/form-data"
             >
               <div className="modal-header">
@@ -49,55 +49,45 @@ export default function UpLoadFile() {
               <div className="modal-body">
                 <div className="modal-body">
                   <h2 className="fs-5">Popover in a modal</h2>
-                  <p>
-                    This{" "}
-                    <button
-                      className="btn btn-secondary"
-                      data-bs-toggle="popover"
-                      title="Popover title"
-                      data-bs-content="Popover body content is set in this attribute."
-                    >
-                      button
-                    </button>{" "}
-                    triggers a popover on click.
-                  </p>
+                 
                   <hr />
 
-                  <div>
-                    <label htmlFor="formFileLg" className="form-label">
-                      Import Image
-                    </label>
-                    <input
-                      type="file"
-                      name="image"
-                      className="form-control form-control-lg"
-                      id="formFileLg"
-                    />
-                  </div>
+
 
                   <div className="mb-3">
-                    <label htmlFor="recipient-name" className="col-form-label">
+                    <label htmlFor="title" className="col-form-label">
                       Title:
                     </label>
                     <input
                       name="title"
                       type="text"
                       className="form-control"
-                      id="recipient-name"
+                      id="title"
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="message-text" className="col-form-label">
+                    <label htmlFor="post" className="col-form-label">
                       Post:
                     </label>
                     <textarea
                       name="post"
                       type="text"
                       className="form-control"
-                      id="message-text"
+                      id="post"
                     ></textarea>
                   </div>
-
+                  <div>
+                    <label htmlFor="file" className="form-label">
+                      Import Image
+                    </label>
+                    <input
+                      type="file"
+                      name="image"
+                      className="form-control form-control-lg"
+                      id="file"
+                      accept=".jpg"
+                    />
+                  </div>
                   <hr />
                   <h2 className="fs-5">Tooltips in a modal</h2>
                   <p>

@@ -11,20 +11,27 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+app.use(express.static("images"));
+mongoose.set("strictQuery", false);
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/fashioncommit_db",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    // family: 4,
     // useCreateIndex: true,
     // useFindAndModify: false,
+    // useNewUrlParser: !0,
+    // useUnifiedTopology: !0,
+    // useCreateIndex: !0,
+    // useFindAndModify: !1,
   }
 );
 
@@ -38,22 +45,22 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+// app.get("/api/config", (req, res) => {
+//   res.json({
+//     success: true,
+//   });
+// });
+
+// app.get("/apiFun", (req, res) => {
+//   res.send("API FUN");
+//   console.log("API works");
+//   res.end();
+// });
+
 // app.use("/api/blog", BlogController);
 // app.use("/api/user", UserController);
 // app.use(AuthController);
-app.use(FileUpload);
-
-app.get("/api/config", (req, res) => {
-  res.json({
-    success: true,
-  });
-});
-
-app.get("/apiFun", (req, res) => {
-  res.send("API FUN");
-  console.log("API works");
-  res.end();
-});
+app.use("/blogPost", FileUpload);
 
 // app.post("/api/users", (req, res) => {
 //   var newUser = req.body;

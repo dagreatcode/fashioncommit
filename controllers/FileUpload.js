@@ -6,11 +6,16 @@ const db = require("../models");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "Images");
+    cb(null, "images");
   },
   filename: (req, file, cb) => {
     console.log(file);
-    cb(null, Date.now() + path.extname(file.originalname));
+    cb(
+      null,
+      // `${file.filename}_${Date.now()}${path.extname(file.originalname)}`
+      // Date.now() + path.extname(file.originalname)
+      `/${Date.now()}${path.extname(file.originalname)}`
+    );
   },
 });
 
@@ -21,20 +26,113 @@ router.get("/upload", (req, res) => {
   res.send("helloWorld");
 });
 
-router.post("/upload", upload.single("image"), (req, res, next) => {
+router.post("/upload", upload.single("image"), (req, res) => {
   res.send("Image Uploaded");
 });
 
-router.post("/postBlog", (req,res)=>{
-    const newPost = {
-        image: req.body.image,
-        title: req.body.title,
-        post: req.body.post
-      };
-      db.Blog.create(newPost).then(() => {
-        res.json(newPost);
+// const c = { prompt: a.body.prompt };
+
+router.post("/", upload.single("image"), (req, res) => {
+  // console.log(req.file)
+  const data = `${req.body.title}`;
+  const data2 = `${req.body.post}`;
+  const data3 = `${req.file.filename}`;
+  const c = {
+    title: `${data}`,
+    post: `${data2}`,
+    image: `${data3}`,
+  };
+  db.Blog.create(c)
+    .then((newBlog) => {
+      res.json(newBlog);
+      // console.log(newUser);
+      // console.log(c)
+      // res.send("Image Uploaded");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        err: true,
+        data: null,
+        message: "Failed to upload",
       });
-})
+    });
+});
+
+router.get("/post", (req, res) => {
+  db.Blog.find({})
+    // .populate("user")
+    .then((foundPosts) => {
+      res.json(foundPosts);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        err: true,
+        data: null,
+        message: "Failed to get all post",
+      });
+    });
+});
+
+router.get("/post/:id", (req, res) => {
+  db.Blog.findOne({ _id: req.params.id }).then((foundBlogs) => {
+    res.json(foundBlogs);
+  });
+});
+
+router.put("/post/:id", (req, res) => {
+  db.Blog.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
+    (updateBlog) => {
+      res.json(updateBlog);
+    }
+  );
+});
+
+router.delete("/post/:id", (req, res) => {
+  db.Blog.findByIdAndDelete(req.params.id).then((result) => {
+    res.json(result);
+  });
+});
+
+// router.post("/", upload.single("image"), (req, res) => {
+//   db.Blog.create({
+//     image: req.file.path,
+//     title: req.body.title,
+//     post: req.body.post
+//   })
+//     .then((newBlog) => {
+//       res.json(newBlog);
+//       console.log(newBlog);
+//       // res.send("Image Uploaded");
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json({
+//         err: true,
+//         data: null,
+//         message: "Failed to upload",
+//       });
+//     });
+// });
+
+// router.post("/", (req, res) => {
+//   const newPost = {
+//     image: req.body.image,
+//     title: req.body.title,
+//     post: req.body.post,
+//   };
+//   db.Blog.create(newPost).then(() => {
+//     res.json(newPost);
+//   }).catch((err) => {
+//     console.log(err);
+//     res.status(500).json({
+//       err: true,
+//       data: null,
+//       message: "Failed to upload",
+//     });
+//   });
+// });
 
 // router.post("/blogPost", upload.single("image"), (req, res) => {
 //   const newPost = {
@@ -52,12 +150,32 @@ router.post("/postBlog", (req,res)=>{
 //   //   }
 // });
 
-// router.post("/blogPost", upload.single("image"),(req, res) => {
+// router.post("/", upload.single("image"),(req, res) => {
 //   db.Blog.create(req.body).then((newUser) => {
 //     res.json(newUser);
 //       res.send("Image Uploaded");
 //   });
 // });
+
+router.post("/back", upload.single("image"), (req, res) => {
+  db.Blog.create({
+    image: req.file.path,
+    title: req.body.title,
+    post: req.body.post,
+  })
+    .then((newUser) => {
+      res.json(newUser);
+      res.send("Image Uploaded");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        err: true,
+        data: null,
+        message: "Failed to upload",
+      });
+    });
+});
 
 // router.post("/blogPost", async (req, res) => {
 //   const newPost = new Blog(req.body);
@@ -99,11 +217,26 @@ router.post("/postBlog", (req,res)=>{
 //     });
 // });
 
-router.post("/blogPost", upload.single("image"),(req, res) => {
-  db.Blog.create(req.body).then((newBlog) => {
-    res.json(newBlog);
-  });
-});
+// router.post("/", upload.single("image"), (req, res) => {
+//   db.Blog.create({
+//     image: req.file.path,
+//     title: req.body.title,
+//     post: req.body.post,
+//   }).then((newBlog) => {
+//     res.render(newBlog);
+//     // res.send("Post Uploaded");
+//     console.log("newBlog", newBlog);
+//     console.log("req.body", req.body);
+//     console.log("path", req.file.path);
+//   }).catch((err) => {
+//     console.log(err);
+//     res.status(500).json({
+//       err: true,
+//       data: null,
+//       message: "Failed to upload",
+//     });
+//   });
+// });
 
 // router.post("/blogPost", upload.single("image"),(req, res) => {
 //     const newPost = {
