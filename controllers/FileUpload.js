@@ -89,7 +89,7 @@ router.put("/post/:id", (req, res) => {
   );
 });
 
-router.delete("/post/:id", (req, res) => {
+router.delete("/deletePost/:id", (req, res) => {
   db.Blog.findByIdAndDelete(req.params.id).then((result) => {
     res.json(result);
   });
