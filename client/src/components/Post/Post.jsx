@@ -1,12 +1,12 @@
 import React from "react";
 // import imgs from "../../"
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 export default function Post({ image, title, post }) {
   return (
     <>
       <h3>{title}</h3>
-      <strong>Image</strong>
+      <br />
       <img
         src={image}
         alt="blog post"
@@ -27,11 +27,11 @@ export default function Post({ image, title, post }) {
 }
 
 Post.propTypes = {
-// id: PropTypes.number.isRequired,
-// userId: PropTypes.number.isRequired,
-title: PropTypes.string.isRequired,
-post: PropTypes.string.isRequired,
-image: PropTypes.string.isRequired,
-}
+  // id: PropTypes.number.isRequired,
+  // userId: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  post: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 
 //rfcp//
