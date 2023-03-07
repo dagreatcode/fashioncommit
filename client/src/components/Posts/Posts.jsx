@@ -8,7 +8,7 @@ export default function Posts({ posts, title }) {
       <div className="col-12" style={{ textAlign: "center" }}>
         <h1>{title}</h1>
         {posts.map((post) => (
-          <Post {...post} key={post.id} />
+          <Post {...post} key={post._id} />
         ))}
       </div>
     </>
