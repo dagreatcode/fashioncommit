@@ -6,28 +6,24 @@ export default function Post({ image, title, post }) {
   return (
     <>
       <h3>{title}</h3>
-      <br />
       <img
         src={image}
         alt="blog post"
-        width="400"
-        height="400"
+        width="350"
+        height="350"
         className="d-inline-block align-text-top"
       />
       {/* <p>
         <strong>Post ID</strong> {_id}
       </p> */}
-      <p>
-        {/* <h4>Post</h4> */}
-        {post}
-      </p>
-      <hr />
+      <p>{post}</p>
+      <br />
     </>
   );
 }
 
 Post.propTypes = {
-  // id: PropTypes.number.isRequired,
+  // _id: PropTypes.number.isRequired,
   // userId: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   post: PropTypes.string.isRequired,
