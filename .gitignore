@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# To stop deleting files/images in production
+/images
