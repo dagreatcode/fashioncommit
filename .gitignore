@@ -104,4 +104,5 @@ dist
 .tern-port
 
 # To stop deleting files/images in production
-# /uploads
+/uploads
+/images
