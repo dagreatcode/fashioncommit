@@ -27,11 +27,32 @@ router.get("/upload", (req, res) => {
   res.send("helloWorld");
 });
 
-router.post("/uploads", (req, res) => {});
+router.post("/", upload.single("image"), async (req, res) => {
+  const data = `${req.body.title}`;
+  const data2 = `${req.body.post}`;
+  const url = cloudinary.url(req.file.filename, {
+    width: 100,
+    height: 150,
+    Crop: "fill",
+  });
+
+  try {
+    const thePic = await cloudinary.uploader.upload(req.file.path);
+    console.log(thePic.secure_url);
+    const theBase = await db.Blog.create({
+      title: `${data}`,
+      post: `${data2}`,
+      image: thePic.secure_url,
+    });
+    res.json({ theBase });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
 
 // const c = { prompt: a.body.prompt };
 
-router.post("/", upload.single("image"), (req, res) => {
+router.post("/uploads", upload.single("image"), (req, res) => {
   const clout = cloudinary.uploader.upload(req.file.path);
   const url = cloudinary.url(req.file.filename, {
     width: 100,
@@ -45,36 +66,33 @@ router.post("/", upload.single("image"), (req, res) => {
     post: `${data2}`,
     image: `${url}`,
   };
-  
+
   // TODO: Async Await
   clout
     .then((data) => {
-      console.log(data);
       console.log(data.secure_url);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  // console.log(req.file)
-
-  // const data3 = `${url}`;
-  console.log(req.file);
-  console.log(req.body);
-
-
-  db.Blog.create(c)
-    .then((newBlog) => {
-      res.json(newBlog);
-      // console.log(newUser);
-      // console.log(c)
-      // res.send("Image Uploaded");
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json({
         err: true,
         data: null,
-        message: "Failed to upload",
+        message: "Failed to upload To Cloudinary",
+      });
+    });
+
+  // const data3 = `${url}`;
+
+  db.Blog.create(c)
+    .then((newBlog) => {
+      res.json(newBlog);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        err: true,
+        data: null,
+        message: "Failed to upload To DB",
       });
     });
 });
