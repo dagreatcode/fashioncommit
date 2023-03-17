@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require("path");
 const multer = require("multer");
 const db = require("../models");
+const cloudinary = require("../utils/cloudinary");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -14,7 +15,7 @@ const storage = multer.diskStorage({
       null,
       // `${file.filename}_${Date.now()}${path.extname(file.originalname)}`
       // Date.now() + path.extname(file.originalname)
-      `/${Date.now()}${path.extname(file.originalname)}`
+      `${Date.now()}${path.extname(file.originalname)}`
     );
   },
 });
@@ -26,23 +27,41 @@ router.get("/upload", (req, res) => {
   res.send("helloWorld");
 });
 
-router.post("/upload", upload.single("image"), (req, res) => {
-  res.send("Image Uploaded");
-});
+router.post("/uploads", (req, res) => {});
 
 // const c = { prompt: a.body.prompt };
 
 router.post("/", upload.single("image"), (req, res) => {
-  // console.log(req.file)
+  const clout = cloudinary.uploader.upload(req.file.path);
+  const url = cloudinary.url(req.file.filename, {
+    width: 100,
+    height: 150,
+    Crop: "fill",
+  });
   const data = `${req.body.title}`;
   const data2 = `${req.body.post}`;
-  const data3 = `${req.file.filename}`;
-  console.log(req.file)
   const c = {
     title: `${data}`,
     post: `${data2}`,
-    image: `${data3}`,
+    image: `${url}`,
   };
+  
+  // TODO: Async Await
+  clout
+    .then((data) => {
+      console.log(data);
+      console.log(data.secure_url);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  // console.log(req.file)
+
+  // const data3 = `${url}`;
+  console.log(req.file);
+  console.log(req.body);
+
+
   db.Blog.create(c)
     .then((newBlog) => {
       res.json(newBlog);
