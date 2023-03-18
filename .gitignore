@@ -105,3 +105,4 @@ dist
 
 # To stop deleting files/images in production
 /uploads
+/images

@@ -9,7 +9,7 @@ export default function Post({ image, title, post }) {
         src={image}
         alt="blog post"
         width="350"
-        height="350"
+        // height="350"
         className="d-inline-block align-text-top"
       />
       <p>{post}</p>
