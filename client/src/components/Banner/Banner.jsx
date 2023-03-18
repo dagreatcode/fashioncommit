@@ -25,11 +25,11 @@ export default function Banner() {
                 className="jumbotron display-2"
                 style={{
                   textAlign: "center",
-                  textShadow:
-                    "1px 1px 2px #65c9ff, 0 0 1em blue, 0 0 0.2em blue",
-                  animationName: "example",
-                  animationDuration: "5s",
-                  animationIterationCount: "10",
+                  // textShadow:
+                  //   "1px 1px 2px #65c9ff, 0 0 1em blue, 0 0 0.2em blue",
+                  // animationName: "example",
+                  // animationDuration: "5s",
+                  // animationIterationCount: "10",
                 }}
               >
               <img src={logoImage} alt="banner logo"/>
