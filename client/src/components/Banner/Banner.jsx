@@ -1,5 +1,6 @@
 import React from "react";
 import "./Banner.css";
+import logoImage from "./Img/Screenshot 2023-03-15 at 6.21.41 PM.jpeg"
 
 export default function Banner() {
   return (
@@ -31,12 +32,25 @@ export default function Banner() {
                   animationIterationCount: "10",
                 }}
               >
-                Fashion Commit
+              <img src={logoImage} alt="banner logo"/>
               </div>
             </div>
           </div>
         </div>
+                      {/* <img src={logoImage} alt="banner logo"/> */}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
       </div>
+      
     </>
   );
 }
