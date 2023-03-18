@@ -1,12 +1,12 @@
 import React from "react";
 import "./Banner.css";
-import logoImage from "./Img/Screenshot 2023-03-15 at 6.21.41 PM.jpeg"
+import logoImage from "./Img/Screenshot 2023-03-15 at 6.21.41 PM.jpeg";
 
 export default function Banner() {
   return (
     <>
       <div className="container">
-        <div className="row" style={{ width: "auto", height: "300px" }}>
+        <div className="row" style={{ width: "auto", height: "100px" }}>
           <div className="card text-bg-dark" style={{ border: "0" }}>
             {/* <img src="..." className="card-img" alt="..." /> */}
             <div className="custom-shape-divider-top-1676734937">
@@ -21,7 +21,7 @@ export default function Banner() {
                   className="shape-fill"
                 ></path>
               </svg>
-              <div
+              {/* <div
                 className="jumbotron display-2"
                 style={{
                   textAlign: "center",
@@ -32,25 +32,16 @@ export default function Banner() {
                   // animationIterationCount: "10",
                 }}
               >
-              <img src={logoImage} alt="banner logo"/>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-                      {/* <img src={logoImage} alt="banner logo"/> */}
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
+        <div className="row">
+          <img src={logoImage} alt="banner logo" />
+        </div>
+        {/* <img src={logoImage} alt="banner logo"/> */}
+        <br />
       </div>
-      
     </>
   );
 }
