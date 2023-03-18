@@ -89,14 +89,23 @@ export default function UpLoadFile() {
                   <hr />
                   <h2 className="fs-5">Quick Links</h2>
                   <p>
-                    <Link to="/" className="tooltip-test" data-bs-toggle="tooltip" title="This will take you home">
+                    <Link
+                      to="/"
+                      className="tooltip-test"
+                      data-bs-toggle="tooltip"
+                      title="This will take you home"
+                    >
                       Go Home
                     </Link>
                     {" or "}
-                    <Link to="/edit" className="tooltip-test" data-bs-toggle="tooltip" title="This will take you to the edit page">
+                    <Link
+                      to="/edit"
+                      className="tooltip-test"
+                      data-bs-toggle="tooltip"
+                      title="This will take you to the edit page"
+                    >
                       {"Edit a Post"}
-                    </Link>
-                    {" "}
+                    </Link>{" "}
                   </p>
                 </div>
               </div>
