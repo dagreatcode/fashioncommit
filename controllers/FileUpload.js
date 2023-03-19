@@ -34,7 +34,7 @@ router.post("/", upload.single("image"), async (req, res) => {
     const theBase = await db.Blog.create({
       title: req.body.title,
       post: req.body.post,
-      image: thePic.secure_url,
+      image: `${thePic.secure_url}`,
     });
     res.json({ theBase });
   } catch (err) {
