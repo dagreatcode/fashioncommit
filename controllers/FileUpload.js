@@ -7,7 +7,7 @@ const cloudinary = require("../utils/cloudinary");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "client/public/uploads");
+    cb(null, "Images");
   },
   filename: (req, file, cb) => {
     console.log(file);
