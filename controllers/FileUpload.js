@@ -7,7 +7,7 @@ const cloudinary = require("../utils/cloudinary");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "Images");
+    cb(null, "images");
   },
   filename: (req, file, cb) => {
     console.log(file);
@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
       null,
       // `${file.filename}_${Date.now()}${path.extname(file.originalname)}`
       // Date.now() + path.extname(file.originalname)
-      `${Date.now()}${path.extname(file.originalname)}`
+      `/${Date.now()}${path.extname(file.originalname)}`
     );
   },
 });
