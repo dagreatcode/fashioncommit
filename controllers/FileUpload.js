@@ -7,7 +7,7 @@ const cloudinary = require("../utils/cloudinary");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "Images");
+    cb(null, "images");
   },
   filename: (req, file, cb) => {
     console.log(file);
@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
       null,
       // `${file.filename}_${Date.now()}${path.extname(file.originalname)}`
       // Date.now() + path.extname(file.originalname)
-      `/${Date.now()}${path.extname(file.originalname)}`
+      `${Date.now()}${path.extname(file.originalname)}`
     );
   },
 });
@@ -28,17 +28,14 @@ router.get("/upload", (req, res) => {
 });
 
 router.post("/", upload.single("image"), async (req, res) => {
-  const data = `${req.body.title}`;
-  const data2 = `${req.body.post}`;
   try {
     const thePic = await cloudinary.uploader.upload(req.file.path);
-    const c = {
-      title: `${data}`,
-      post: `${data2}`,
-      image: thePic.secure_url,
-    };
     console.log(thePic.secure_url);
-    const theBase = await db.Blog.create(c);
+    const theBase = await db.Blog.create({
+      title: req.body.title,
+      post: req.body.post,
+      image: `${thePic.secure_url}`,
+    });
     res.json({ theBase });
   } catch (err) {
     res.status(400).json({ message: err.message });
