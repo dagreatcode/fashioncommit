@@ -28,15 +28,8 @@ router.get("/upload", (req, res) => {
 });
 
 router.post("/", upload.single("image"), async (req, res) => {
-  // const url = cloudinary.url(req.file.filename, {
-  //   width: 100,
-  //   height: 150,
-  //   Crop: "fill",
-  // });
+  const thePic = cloudinary.uploader.upload(req.file.path);
   try {
-    // const data = await `${req.body.title}`;
-    // const data2 = `${req.body.post}`;
-    const thePic = await cloudinary.uploader.upload(req.file.path);
     console.log(thePic.secure_url);
     const theBase = await db.Blog.create({
       title: req.body.title,
