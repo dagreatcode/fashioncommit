@@ -29,7 +29,7 @@ router.get("/upload", (req, res) => {
 
 router.post("/", upload.single("image"), async (req, res) => {
   try {
-    const thePic = cloudinary.uploader.upload(req.file.path);
+    const thePic = await cloudinary.uploader.upload(req.file.path);
     console.log(thePic.secure_url);
     const theBase = await db.Blog.create({
       title: req.body.title,
