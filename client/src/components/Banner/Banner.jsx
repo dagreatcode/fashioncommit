@@ -1,11 +1,12 @@
 import React from "react";
 import "./Banner.css";
+import logoImage from "./Img/Screenshot 2023-03-15 at 6.21.41 PM.jpeg";
 
 export default function Banner() {
   return (
     <>
       <div className="container">
-        <div className="row" style={{ width: "auto", height: "300px" }}>
+        <div className="row" style={{ width: "auto", height: "100px" }}>
           <div className="card text-bg-dark" style={{ border: "0" }}>
             {/* <img src="..." className="card-img" alt="..." /> */}
             <div className="custom-shape-divider-top-1676734937">
@@ -20,22 +21,26 @@ export default function Banner() {
                   className="shape-fill"
                 ></path>
               </svg>
-              <div
+              {/* <div
                 className="jumbotron display-2"
                 style={{
                   textAlign: "center",
-                  textShadow:
-                    "1px 1px 2px #65c9ff, 0 0 1em blue, 0 0 0.2em blue",
-                  animationName: "example",
-                  animationDuration: "5s",
-                  animationIterationCount: "10",
+                  // textShadow:
+                  //   "1px 1px 2px #65c9ff, 0 0 1em blue, 0 0 0.2em blue",
+                  // animationName: "example",
+                  // animationDuration: "5s",
+                  // animationIterationCount: "10",
                 }}
               >
-                Fashion Commit
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
+        <div className="row">
+          <img src={logoImage} alt="banner logo" />
+        </div>
+        {/* <img src={logoImage} alt="banner logo"/> */}
+        <br />
       </div>
     </>
   );

@@ -37,7 +37,7 @@ export default function UpLoadFile() {
             >
               <div className="modal-header">
                 <h1 className="modal-title fs-5" id="exampleModalLabel">
-                  Modal title
+                  Add an amazing Post
                 </h1>
                 <button
                   type="button"
@@ -48,11 +48,9 @@ export default function UpLoadFile() {
               </div>
               <div className="modal-body">
                 <div className="modal-body">
-                  <h2 className="fs-5">Popover in a modal</h2>
-                 
+                  <h2 className="fs-5">Show your commitment🫀</h2>
+
                   <hr />
-
-
 
                   <div className="mb-3">
                     <label htmlFor="title" className="col-form-label">
@@ -89,16 +87,25 @@ export default function UpLoadFile() {
                     />
                   </div>
                   <hr />
-                  <h2 className="fs-5">Tooltips in a modal</h2>
+                  <h2 className="fs-5">Quick Links</h2>
                   <p>
-                    <Link to="/" data-bs-toggle="tooltip" title="Tooltip">
-                      This link
+                    <Link
+                      to="/"
+                      className="tooltip-test"
+                      data-bs-toggle="tooltip"
+                      title="This will take you home"
+                    >
+                      Go Home
+                    </Link>
+                    {" or "}
+                    <Link
+                      to="/edit"
+                      className="tooltip-test"
+                      data-bs-toggle="tooltip"
+                      title="This will take you to the edit page"
+                    >
+                      {"Edit a Post"}
                     </Link>{" "}
-                    and{" "}
-                    <Link to="/" data-bs-toggle="tooltip" title="Tooltip">
-                      that link
-                    </Link>{" "}
-                    have tooltips on hover.
                   </p>
                 </div>
               </div>

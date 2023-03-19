@@ -2,7 +2,7 @@
 
 Barbara Kendrick's Blog
 
-![Image of the Into Page](./images/README.png)
+![Image of the Into Page](./README/README.png)
 
 Your GitHub profile is an extremely important aspect of your public identity as a developer. A well-crafted one allows you to show off your work to other developers as well as potential employers. An important component of your GitHub profile—and one that many new developers often overlook—is the README.md file.
 
@@ -142,11 +142,13 @@ SOFTWARE.
 ```
 
 ## Badges
-![Language](https://img.shields.io/github/languages/top/nielsenjared/badmath?style=for-the-badge&logo=appveyor)
+![Language](https://img.shields.io/github/languages/top/dagreatcode/fashioncommit?style=for-the-badge&logo=appveyor)
 
 🏆 
 
 ![Website](https://img.shields.io/badge/Website-fashioncommit.com-green?style=social&logo=appveyor)
+
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
 ## Contributing
 
