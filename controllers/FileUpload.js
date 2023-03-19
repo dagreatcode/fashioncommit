@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
       null,
       // `${file.filename}_${Date.now()}${path.extname(file.originalname)}`
       // Date.now() + path.extname(file.originalname)
-      `${Date.now()}${path.extname(file.originalname)}`
+      `/${Date.now()}${path.extname(file.originalname)}`
     );
   },
 });
@@ -30,20 +30,15 @@ router.get("/upload", (req, res) => {
 router.post("/", upload.single("image"), async (req, res) => {
   const data = `${req.body.title}`;
   const data2 = `${req.body.post}`;
-  // const url = cloudinary.url(req.file.filename, {
-  //   width: 100,
-  //   height: 150,
-  //   Crop: "fill",
-  // });
-
   try {
     const thePic = await cloudinary.uploader.upload(req.file.path);
-    console.log(thePic.secure_url);
-    const theBase = await db.Blog.create({
+    const c = {
       title: `${data}`,
       post: `${data2}`,
       image: thePic.secure_url,
-    });
+    };
+    console.log(thePic.secure_url);
+    const theBase = await db.Blog.create(c);
     res.json({ theBase });
   } catch (err) {
     res.status(400).json({ message: err.message });
