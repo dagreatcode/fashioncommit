@@ -18,7 +18,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-app.use(express.static("client/public/uploads"));
+app.use(express.static("Images"));
 mongoose.set("strictQuery", false);
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/fashioncommit_db",
