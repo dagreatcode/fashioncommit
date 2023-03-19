@@ -30,6 +30,11 @@ router.get("/upload", (req, res) => {
 router.post("/", upload.single("image"), async (req, res) => {
   const data = `${req.body.title}`;
   const data2 = `${req.body.post}`;
+  const url = cloudinary.url(req.file.filename, {
+    width: 100,
+    height: 150,
+    Crop: "fill",
+  });
   try {
     const thePic = await cloudinary.uploader.upload(req.file.path);
     console.log(thePic.secure_url);
