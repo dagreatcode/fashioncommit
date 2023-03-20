@@ -1,12 +1,40 @@
-GET http://localhost:3001/blogPost/upload
+GET http://localhost:3001/blogPost/getPosts
+
 
 ###
 
-POST  http://localhost:3001/blogPost
+# POST  http://localhost:3001/blogPost
+# Content-Type: application/json
+
+# {
+#     "image": "ygjhgjjh",
+#     "title": "hgkjgkjgkj",
+#     "post": "jgjkgkj"
+# }
+
+###
+
+
+DELETE http://localhost:3001/blogPost/post/6417b5b4f0a517eff08d5bdd
+
+
+###
+
+GET http://localhost:3001/blogPost/post/6417b5b4f0a517eff08d5bdd
+###
+
+
+PUT  http://localhost:3001/blogPost/post/6417b5b4f0a517eff08d5bdd
 Content-Type: application/json
 
 {
-    "image": "ygjhgjjh",
-    "title": "hgkjgkjgkj",
-    "post": "jgjkgkj"
+    "title": "Updated Completed",
+    "post": "PuT TeSt"
 }
+
+###
+
+
+GET http://localhost:3001/blogPost/search/testing
+
+###
