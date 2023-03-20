@@ -24,7 +24,7 @@ export function getArticles() {
 export function getArticlesById() {
   return function (dispatch) {
     return axios
-      .get("/blogPost/post")
+      .get("/blogPost/getPosts")
       .then((response) => {
         // const filteredPosts = response.data.filter(post => post.userId === 2)
         dispatch({ type: GET_MY_ARTICLES, payload: response.data });
