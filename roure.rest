@@ -3,6 +3,13 @@ GET http://localhost:3001/blogPost/getPosts
 
 ###
 
+GET https://www.fashioncommit.com/blogPost/getPosts
+
+6417b5b4f0a517eff08d5bdd
+###
+
+DELETE https://www.fashioncommit.com/blogPost/post/6417b5b4f0a517eff08d5bdd
+
 # POST  http://localhost:3001/blogPost
 # Content-Type: application/json
 

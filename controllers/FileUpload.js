@@ -40,6 +40,7 @@ router.get("/search/:title", async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
 router.get("/getPosts", (req, res) => {
   db.Blog.find({})
     // .populate("user")

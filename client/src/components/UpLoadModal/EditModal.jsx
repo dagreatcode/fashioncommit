@@ -21,7 +21,7 @@ function Edit() {
       <div
         className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
@@ -40,11 +40,11 @@ function Edit() {
             </div>
             <div className="modal-body">
               <div className="modal-body">
-                <h2 class="fs-5">Popover in a modal</h2>
+                <h2 className="fs-5">Popover in a modal</h2>
                 <p>
                   This{" "}
                   <button
-                    class="btn btn-secondary"
+                    className="btn btn-secondary"
                     data-bs-toggle="popover"
                     title="Popover title"
                     data-bs-content="Popover body content is set in this attribute."
@@ -55,7 +55,7 @@ function Edit() {
                 </p>
                 <hr />
                 <div>
-                  <label for="formFileLg" className="form-label">
+                  <label htmlFor="formFileLg" className="form-label">
                     Import Image
                   </label>
                   <input
@@ -66,7 +66,7 @@ function Edit() {
                 </div>
                 <form>
                   <div className="mb-3">
-                    <label for="recipient-name" className="col-form-label">
+                    <label htmlFor="recipient-name" className="col-form-label">
                       Recipient:
                     </label>
                     <input
@@ -76,7 +76,7 @@ function Edit() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label for="message-text" className="col-form-label">
+                    <label htmlFor="message-text" className="col-form-label">
                       Message:
                     </label>
                     <textarea

@@ -1,6 +1,6 @@
 import React from "react";
 // import PropTypes from 'prop-types'
-import EModal from "../../components/UpLoadModal/Edit";
+import EModal from "../../components/UpLoadModal/EditModal";
 import { useSelector } from "react-redux";
 import Posts from "../../components/Posts/EditPosts";
 
