@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import Edit from "../UpLoadModal/EditModal"
 
 const API_URL = "https://localhost:3001";
 
@@ -49,6 +50,7 @@ export default function Post({ image, title, post, _id, date }) {
         <p>{date}</p>
         <p>{_id}</p>
       </form>
+<Edit/>
       <button
         // onClick={() => axios.delete(`${API_URL}/blogPost/deletePost/${_id}`)}
         onClick={() => handleSubmit(_id)}
