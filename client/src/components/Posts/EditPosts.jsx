@@ -1,5 +1,5 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import EditPost from "../Post/EditPost";
 
 export default function Posts({ posts, title }) {
@@ -15,7 +15,7 @@ export default function Posts({ posts, title }) {
   );
 }
 
-// Posts.propTypes = {
-//   posts: PropTypes.array.isRequired,
-//   title: PropTypes.string.isRequired,
-// };
+Posts.propTypes = {
+  posts: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+};

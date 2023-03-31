@@ -9,7 +9,7 @@ import Login from "./screens/Login/Login";
 import NotFound from "./screens/NotFound/NotFound";
 import UpLoadFile from "./screens/UpLoadPage/UpLoadFile";
 import Landing from "./screens/Landing/Landing";
-import Edit from "./screens/Edit/Edit";
+import Edit from "./screens/Edit/EditPost";
 
 function App() {
   // const [posts,setPosts] = useState([]);

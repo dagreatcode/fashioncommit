@@ -40,6 +40,7 @@ router.get("/search/:title", async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
 router.get("/getPosts", (req, res) => {
   db.Blog.find({})
     // .populate("user")
@@ -86,19 +87,33 @@ router.put("/post/:id", (req, res) => {
     });
 });
 
-router.delete("/post/:id", (req, res) => {
-  db.Blog.findByIdAndDelete(req.params.id)
-    .then((result) => {
-      res.json(result);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        err: true,
-        data: null,
-        message: "Failed to delete post",
-      });
-    });
+router.delete("/delete/:id", async (req, res) => {
+  
+  try {
+    await db.Blog.findByIdAndDelete(req.params.id).exec()
+    console.log("found")
+      res.json("DELETE");
+  } catch (error) {
+console.log(error)
+  }
+  // db.Blog.findByIdAndDelete(req.params.id)
+  //   .then((result) => {
+  //     console.log("Hello");
+  //     res.json(result);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(500).json({
+  //       err: true,
+  //       data: null,
+  //       message: "Failed to delete post",
+  //     });
+    // });
+});
+router.delete("/dPost/:id", (req, res) => {
+  db.Blog.findByIdAndDelete({ _id: req.params.id}).then((result) => {
+    res.json(result);
+  })
 });
 
 module.exports = router;
