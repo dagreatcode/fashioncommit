@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+// const cors = require("cors");
 // const UserController = require("./controllers/UsersController");
 // const AuthController = require("./controllers/authController");
 // const BlogController = require("./controllers/BlogController");
@@ -67,6 +68,13 @@ app.use("/blogPost", FileUpload);
 //   console.log(newUser);
 //   users.push(newUser);
 //   res.json(newUser);
+// });
+// app.use(cors());
+// app.use((req,res, next)=>{
+//   res.setHeader('Access-Control-Allow-Origin',"http://localhost:3000");
+//   res.setHeader('Access-Control-Allow-Headers',"*");
+//   res.header('Access-Control-Allow-Credentials', true);
+//   next();
 // });
 
 app.get("*", (req, res) => {

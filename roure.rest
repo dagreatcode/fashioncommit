@@ -8,7 +8,7 @@ GET https://www.fashioncommit.com/blogPost/getPosts
 6417b5b4f0a517eff08d5bdd
 ###
 
-DELETE https://www.fashioncommit.com/blogPost/post/6417b5b4f0a517eff08d5bdd
+DELETE https://www.fashioncommit.com/blogPost/post/641f822ae95eeb526a283d19
 
 # POST  http://localhost:3001/blogPost
 # Content-Type: application/json
@@ -22,12 +22,16 @@ DELETE https://www.fashioncommit.com/blogPost/post/6417b5b4f0a517eff08d5bdd
 ###
 
 
-DELETE http://localhost:3001/blogPost/post/6417b5b4f0a517eff08d5bdd
+DELETE http://localhost:3001/blogPost/delete/642612ddbfd0db65e0b80fd3
+
+
 
 
 ###
 
-GET http://localhost:3001/blogPost/post/6417b5b4f0a517eff08d5bdd
+GET http://localhost:3001/blogPost/post/6424e9e9a4e36e51f55273c5
+
+
 ###
 
 
@@ -45,3 +49,6 @@ Content-Type: application/json
 GET http://localhost:3001/blogPost/search/testing
 
 ###
+
+
+/blogPost/post/641fde882d0cf2a2d80e1318
