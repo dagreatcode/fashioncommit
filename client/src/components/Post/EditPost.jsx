@@ -45,8 +45,6 @@ export default function Post({ image, title, post, _id, date }) {
           className="d-inline-block align-text-top"
         />
         <p>{post}</p>
-        <button>Edit</button>
-
         <p>{date}</p>
         <p>{_id}</p>
       </form>
