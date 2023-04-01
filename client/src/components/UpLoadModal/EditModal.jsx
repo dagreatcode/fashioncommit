@@ -27,6 +27,11 @@ function Edit() {
       >
         <div className="modal-dialog">
           <div className="modal-content">
+          <form
+              method="PUT"
+              action="/blogPost/update/:id"
+              encType="multipart/form-data"
+            >
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Modal title
@@ -111,6 +116,7 @@ function Edit() {
                 Save changes
               </button>
             </div>
+            </form>
           </div>
         </div>
       </div>

@@ -50,5 +50,10 @@ GET http://localhost:3001/blogPost/search/testing
 
 ###
 
+PUT http://localhost:3001/blogPost/update/64276d39e08fce8e50cb8055
+Content-Type: application/json
 
-/blogPost/post/641fde882d0cf2a2d80e1318
+{
+    "title": "Updated Completed",
+    "post": "PuT TeSt"
+}
