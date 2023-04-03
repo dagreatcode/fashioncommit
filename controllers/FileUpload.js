@@ -31,7 +31,7 @@ router.post("/", upload.single("image"), async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
-router.put("/:id", upload.single("image"), async (req, res) => {
+router.put("/:id", upload.single("img"), async (req, res) => {
   try {
     // const thePic = await cloudinary.uploader.upload(req.path);
     // console.log(thePic.secure_url);
@@ -41,7 +41,8 @@ router.put("/:id", upload.single("image"), async (req, res) => {
         title: req.body.title,
         post: req.body.post,
         // image: `${thePic.secure_url}`,
-        image: `Hello Folks`
+        // image: `Hello Folks`
+        image: req.body.image,
       },
       { new: true }
     );
