@@ -33,8 +33,8 @@ router.post("/", upload.single("image"), async (req, res) => {
 });
 router.put("/:id", upload.single("image"), async (req, res) => {
   try {
-    const thePic = await cloudinary.uploader.upload(req.path);
-    console.log(thePic.secure_url);
+    // const thePic = await cloudinary.uploader.upload(req.path);
+    // console.log(thePic.secure_url);
     const updatePost = await db.Blog.findByIdAndUpdate(
       { _id: req.params.id },
       {
