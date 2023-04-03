@@ -31,20 +31,24 @@ router.post("/", upload.single("image"), async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
-router.put("/update/:id", upload.single("image"), async (req, res) => {
+router.put("/:id", upload.single("image"), async (req, res) => {
   try {
-    const thePic = await cloudinary.uploader.upload(req.file.path);
+    const thePic = await cloudinary.uploader.upload(req.path);
     console.log(thePic.secure_url);
     const updatePost = await db.Blog.findByIdAndUpdate(
+      { _id: req.params.id },
       {
-        _id: req.params.id,
         title: req.body.title,
         post: req.body.post,
-        image: `${thePic.secure_url}`,
+        // image: `${thePic.secure_url}`,
+        image: `Hello Folks`
       },
       { new: true }
     );
-    res.json({ updatePost })  } catch (err) {
+    // console.lod(thePic)
+    console.log(updatePost)
+    res.json({ updatePost });
+  } catch (err) {
     console.log(err);
   }
 });

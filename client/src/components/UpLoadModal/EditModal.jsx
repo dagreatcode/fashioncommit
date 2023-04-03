@@ -1,7 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-function Edit() {
+function Edit({_id, post, title, image}) {
+  const handleUpdate = (_id) => {
+    //  try{
+    console.log("hello");
+    //  }catch(error){
+    //   console.log(error)
+    //  }
+    axios.put(`/blogPost/${_id}`, {
+      method: "PUT",
+    });
+    console.log(_id);
+  };
   return (
     <>
       <div className="modal-body">
@@ -61,7 +73,7 @@ function Edit() {
                 <hr />
                 <div>
                   <label htmlFor="formFileLg" className="form-label">
-                    Import Image
+                    Import Image{image}
                   </label>
                   <input
                     className="form-control form-control-lg"
@@ -72,7 +84,7 @@ function Edit() {
                 <form>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
-                      Recipient:
+                      title:{title}
                     </label>
                     <input
                       type="text"
@@ -82,7 +94,7 @@ function Edit() {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="message-text" className="col-form-label">
-                      Message:
+                      Post:{post}{_id}
                     </label>
                     <textarea
                       className="form-control"
@@ -112,7 +124,7 @@ function Edit() {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
+              <button onClick={() => handleUpdate(_id)} type="button" className="btn btn-primary">
                 Save changes
               </button>
             </div>
