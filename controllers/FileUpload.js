@@ -31,13 +31,25 @@ router.post("/", upload.single("image"), async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
-router.get("/search/:title", async (req, res) => {
+router.put("/:id", upload.single("image"), async (req, res) => {
   try {
-    const looking = await db.Blog.findOne({ title: req.params.id });
-    console.log(looking);
-    res.json(looking);
+    // const thePic = await cloudinary.uploader.upload(req.path);
+    // console.log(thePic.secure_url);
+    const updatePost = await db.Blog.findByIdAndUpdate(
+      { _id: req.params.id },
+      {
+        title: req.body.title,
+        post: req.body.post,
+        // image: `${thePic.secure_url}`,
+        image: `Hello Folks`
+      },
+      { new: true }
+    );
+    // console.lod(thePic)
+    console.log(updatePost)
+    res.json({ updatePost });
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    console.log(err);
   }
 });
 
@@ -88,13 +100,12 @@ router.put("/post/:id", (req, res) => {
 });
 
 router.delete("/delete/:id", async (req, res) => {
-  
   try {
-    await db.Blog.findByIdAndDelete(req.params.id).exec()
-    console.log("found")
-      res.json("DELETE");
+    await db.Blog.findByIdAndDelete(req.params.id).exec();
+    console.log("found");
+    res.json("DELETE");
   } catch (error) {
-console.log(error)
+    console.log(error);
   }
   // db.Blog.findByIdAndDelete(req.params.id)
   //   .then((result) => {
@@ -108,12 +119,12 @@ console.log(error)
   //       data: null,
   //       message: "Failed to delete post",
   //     });
-    // });
+  // });
 });
 router.delete("/dPost/:id", (req, res) => {
-  db.Blog.findByIdAndDelete({ _id: req.params.id}).then((result) => {
+  db.Blog.findByIdAndDelete({ _id: req.params.id }).then((result) => {
     res.json(result);
-  })
+  });
 });
 
 module.exports = router;
