@@ -1,12 +1,59 @@
-GET http://localhost:3001/blogPost/upload
+GET http://localhost:3001/blogPost/getPosts
+
 
 ###
 
-POST  http://localhost:3001/blogPost
+GET https://www.fashioncommit.com/blogPost/getPosts
+
+6417b5b4f0a517eff08d5bdd
+###
+
+DELETE https://www.fashioncommit.com/blogPost/post/641f822ae95eeb526a283d19
+
+# POST  http://localhost:3001/blogPost
+# Content-Type: application/json
+
+# {
+#     "image": "ygjhgjjh",
+#     "title": "hgkjgkjgkj",
+#     "post": "jgjkgkj"
+# }
+
+###
+
+
+DELETE http://localhost:3001/blogPost/delete/642612ddbfd0db65e0b80fd3
+
+
+
+
+###
+
+GET http://localhost:3001/blogPost/post/6424e9e9a4e36e51f55273c5
+
+
+###
+
+
+PUT  http://localhost:3001/blogPost/post/6417b5b4f0a517eff08d5bdd
 Content-Type: application/json
 
 {
-    "image": "ygjhgjjh",
-    "title": "hgkjgkjgkj",
-    "post": "jgjkgkj"
+    "title": "Updated Completed",
+    "post": "PuT TeSt"
+}
+
+###
+
+
+GET http://localhost:3001/blogPost/search/testing
+
+###
+
+PUT http://localhost:3001/blogPost/update/64276d39e08fce8e50cb8055
+Content-Type: application/json
+
+{
+    "title": "Updated Completed",
+    "post": "PuT TeSt"
 }
