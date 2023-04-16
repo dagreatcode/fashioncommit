@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Edit({ _id, post, title, image }) {
+function Edit({ _id, title, post, image }) {
+  const [postState, setPostState] = useState({
+    title: title,
+    post: post,
+    newImage: image,
+  });
+  // const [titleState, setTitleState] = useState({
+  //   title: "test",
+  // });
+  // const [postState, setPostState] = useState({
+  //   post: "test"
+  // });
+  // const [imageState, setImageState] = useState({
+  //   image: "",
+  // });
+
+  // const handleUpdate2 = (_id) => {
+
+  // }
+
   const handleUpdate = (_id) => {
     //  try{
     console.log("hello");
     //  }catch(error){
     //   console.log(error)
     //  }
-    axios.put(`/blogPost/${_id}`, {
+    axios.put(`/blogPost/test/${_id}`, {
       method: "PUT",
     });
     console.log(_id);
@@ -67,38 +86,54 @@ function Edit({ _id, post, title, image }) {
                     triggers a popover on click.
                   </p>
                   <hr />
-                  <div>
-                    <label htmlFor="formFileLg" className="form-label">
-                      Import Image{image}
-                    </label>
-                    <input
-                      className="form-control form-control-lg"
-                      id="formFileLg"
-                      type="file"
-                    />
-                  </div>
-
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
-                      title:{title}
+                      title:
                     </label>
                     <input
+                      name="title"
                       type="text"
                       className="form-control"
                       id="recipient-name"
+                      value={postState.title}
+                      onChange={(e) => {
+                        setPostState({ title: e.target.value });
+                      }}
                     />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="message-text" className="col-form-label">
-                      Post:{post}
-                      {_id}
+                      Post:
                     </label>
                     <textarea
+                      value={postState.post}
+                      name="post"
+                      type="text"
                       className="form-control"
                       id="message-text"
+                      onChange={(e) => {
+                        setPostState({ post: e.target.value });
+                      }}
                     ></textarea>
                   </div>
-
+                  <div>
+                    <label htmlFor="file" className="form-label">
+                      Import Image
+                    </label>
+                    <input
+                      className="form-control form-control-lg"
+                      id="img"
+                      type="file"
+                      name="img"
+                      accept=".jpg, .png, .jpeg"
+                      value={postState.image}
+                      onChange={(e) => {
+                        setPostState({ newImage: e.target.value });
+                      }}
+                      // alt=""
+                    />
+                    {"_id:"} {_id}
+                  </div>
                   <hr />
                   <h2 className="fs-5">Tooltips in a modal</h2>
                   <p>
@@ -128,6 +163,33 @@ function Edit({ _id, post, title, image }) {
                   data-bs-dismiss="modal"
                 >
                   Save changes
+                </button>
+              </div>
+            </form>
+            <form
+              action="/api/upload/"
+              encType="multipart/form-data"
+              method="PUT"
+            >
+              <div className="form-group">
+                <label htmlFor="file" className="form-label">
+                  Import Image
+                </label>
+                <input
+                  multiple="multiple"
+                  type="file"
+                  name="image"
+                  className="form-control form-control-lg"
+                  id="file"
+                  accept=".jpg, .png, .jpeg"
+                  // value="update image"
+                />
+                <button
+                  onClick={() => handleUpdate(_id)}
+                  type="submit"
+                  className="btn btn-primary"
+                >
+                  Update
                 </button>
               </div>
             </form>
