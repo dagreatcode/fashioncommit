@@ -29,13 +29,13 @@ DELETE http://localhost:3001/blogPost/delete/642612ddbfd0db65e0b80fd3
 
 ###
 
-GET http://localhost:3001/blogPost/post/6424e9e9a4e36e51f55273c5
+GET http://localhost:3001/blogPost/post/64358a72a884c4bb2b29af53
 
 
 ###
 
 
-PUT  http://localhost:3001/blogPost/post/6417b5b4f0a517eff08d5bdd
+PUT  http://localhost:3001/blogPost/post/64358a72a884c4bb2b29af53
 Content-Type: application/json
 
 {

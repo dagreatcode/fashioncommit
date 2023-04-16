@@ -4,6 +4,7 @@ const path = require("path");
 const multer = require("multer");
 const db = require("../models");
 const cloudinary = require("../utils/cloudinary");
+const formidable = require("formidable");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -12,6 +13,16 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     console.log(file);
     cb(null, `${Date.now()}${path.extname(file.originalname)}`);
+  },
+});
+var storage2 = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, "public/uploads/");
+  },
+  filename: (req, file, callback) => {
+    var filetype = file.mimetype;
+    var fileFormate = filetype.split("/")[1];
+    callback(null, Date.now() + "." + fileFormate);
   },
 });
 
@@ -31,6 +42,75 @@ router.post("/", upload.single("image"), async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
+
+router.put("/post/edit/:id", upload.single("images"), (req, res) => {
+  const id = req.params.id;
+
+  const body = req.body;
+
+  console.log("body:", body);
+  console.log("req:", req);
+
+  const title = body.title;
+  const post = body.post;
+  const image = req.file.filename;
+
+  db.Blog.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      $set: {
+        title,
+        post,
+        image,
+      },
+    },
+    { new: true }
+  )
+    .then((post) => {
+      req.flash("success", "Edits submitted successfully");
+      res.redirect("/edit");
+    })
+    .catch((err) => {
+      return req.flash("error", "Unable to edit article");
+    });
+});
+
+
+router.put("test/:id", upload.single("image"), async (req, res) => {
+  const updateThePost = {
+    title: req.body.title,
+    post: req.body.post,
+    // image: `${thePic.secure_url}`,
+    // image: `Hello Folks`
+    image: req.body.image,
+  };
+  try {
+    console.log("hello");
+    await db.Blog.findByIdAndUpdate({ _id: req.params.id }, updateThePost, {
+      new: true,
+    });
+    console.log("found");
+    // res.json(updateBlog);
+    // let file = req.file;
+    // console.log(file);
+    // console.log("hello")
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.put("/api/upload/:id", (req, res, next) => {
+  const form = formidable({ multiples: true });
+
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      next(err);
+      return;
+    }
+    res.json({ fields, files });
+  });
+});
+
 router.put("/:id", upload.single("img"), async (req, res) => {
   try {
     // const thePic = await cloudinary.uploader.upload(req.path);
@@ -47,7 +127,7 @@ router.put("/:id", upload.single("img"), async (req, res) => {
       { new: true }
     );
     // console.lod(thePic)
-    console.log(updatePost)
+    console.log(updatePost);
     res.json({ updatePost });
   } catch (err) {
     console.log(err);
@@ -85,19 +165,21 @@ router.get("/post/:id", (req, res) => {
     });
 });
 
-router.put("/post/:id", (req, res) => {
-  db.Blog.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then((updateBlog) => {
-      res.json(updateBlog);
-    })
-    .catch((err) => {
-      console.log(err);
+router.put("/post/:id", async (req, res) => {
+  try{
+    await db.Blog.findByIdAndUpdate(req.params.id, {title: req.body.title, post: req.body.post}, { new: true })
+  }catch(err){
+    console.log(err);
       res.status(500).json({
         err: true,
         data: null,
         message: "Failed to update post",
       });
-    });
+  }
+    // .then((updateBlog) => {
+    //   res.json(updateBlog);
+    // })
+
 });
 
 router.delete("/delete/:id", async (req, res) => {

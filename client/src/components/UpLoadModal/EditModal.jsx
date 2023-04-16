@@ -1,9 +1,8 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Edit({ _id, title, post, image }) {
-
   const [postState, setPostState] = useState({
     title: title,
     post: post,
@@ -19,13 +18,17 @@ function Edit({ _id, title, post, image }) {
   //   image: "",
   // });
 
+  // const handleUpdate2 = (_id) => {
+
+  // }
+
   const handleUpdate = (_id) => {
     //  try{
     console.log("hello");
     //  }catch(error){
     //   console.log(error)
     //  }
-    axios.put(`/blogPost/${_id}`, {
+    axios.put(`/blogPost/test/${_id}`, {
       method: "PUT",
     });
     console.log(_id);
@@ -101,10 +104,9 @@ function Edit({ _id, title, post, image }) {
                   <div className="mb-3">
                     <label htmlFor="message-text" className="col-form-label">
                       Post:
-                     
                     </label>
                     <textarea
-                    value={postState.post}
+                      value={postState.post}
                       name="post"
                       type="text"
                       className="form-control"
@@ -130,7 +132,7 @@ function Edit({ _id, title, post, image }) {
                       }}
                       // alt=""
                     />
-                     {"_id:"} {_id}
+                    {"_id:"} {_id}
                   </div>
                   <hr />
                   <h2 className="fs-5">Tooltips in a modal</h2>
@@ -161,6 +163,33 @@ function Edit({ _id, title, post, image }) {
                   data-bs-dismiss="modal"
                 >
                   Save changes
+                </button>
+              </div>
+            </form>
+            <form
+              action="/api/upload/"
+              encType="multipart/form-data"
+              method="PUT"
+            >
+              <div className="form-group">
+                <label htmlFor="file" className="form-label">
+                  Import Image
+                </label>
+                <input
+                  multiple="multiple"
+                  type="file"
+                  name="image"
+                  className="form-control form-control-lg"
+                  id="file"
+                  accept=".jpg, .png, .jpeg"
+                  // value="update image"
+                />
+                <button
+                  onClick={() => handleUpdate(_id)}
+                  type="submit"
+                  className="btn btn-primary"
+                >
+                  Update
                 </button>
               </div>
             </form>
