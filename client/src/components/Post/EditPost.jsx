@@ -6,11 +6,11 @@ import axios from "axios";
 const API_URL = "https://localhost:3001";
 
 export default function Post({ image, title, post, _id, date }) {
-  const [postState, setPostState] = useState({
-    title: "",
-    post: "",
-    image: "",
-  });
+  const [titleState, setTitleState] = useState("");
+  const [postState, setPostState] = useState("");
+  // const [imageState, setImageState] = useState({
+  //   image: ""
+  // });
 
   // const [state, dispatch] = useState();
   // const res = await axios.delete(`${API_URL}/blogPost/deletePost/${_id}`)}
@@ -27,8 +27,8 @@ export default function Post({ image, title, post, _id, date }) {
     //   console.log(error)
     //  }
     const bill = {
-      title: postState.title,
-      post: postState.post,
+      title: titleState,
+      post: postState,
       image,
     };
     console.log(bill);
@@ -60,10 +60,10 @@ export default function Post({ image, title, post, _id, date }) {
         <div>
           <textarea
             onChange={(e) => {
-              setPostState({ title: e.target.value });
+              setTitleState(e.target.value);
             }}
             placeholder={title}
-            value={postState.title}
+            value={titleState.title}
           ></textarea>
         </div>
         <img
@@ -78,7 +78,7 @@ export default function Post({ image, title, post, _id, date }) {
         <div>
           <textarea
             onChange={(e) => {
-              setPostState({ post: e.target.value });
+              setPostState(e.target.value);
             }}
             placeholder={post}
             value={postState.post}
