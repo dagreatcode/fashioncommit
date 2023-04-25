@@ -8,9 +8,7 @@ const API_URL = "https://localhost:3001";
 export default function Post({ image, title, post, _id, date }) {
   const [titleState, setTitleState] = useState("");
   const [postState, setPostState] = useState("");
-  // const [imageState, setImageState] = useState({
-  //   image: ""
-  // });
+  const [imageState, setImageState] = useState("");
 
   // const [state, dispatch] = useState();
   // const res = await axios.delete(`${API_URL}/blogPost/deletePost/${_id}`)}
@@ -29,11 +27,12 @@ export default function Post({ image, title, post, _id, date }) {
     const bill = {
       title: titleState,
       post: postState,
-      image,
+      image: imageState,
     };
     console.log(bill);
     axios.put(`/blogPost/post/${_id}`, bill, {
       method: "PUT",
+      enctype: "multipart/form-data"
     });
     console.log(_id);
   };
@@ -73,7 +72,21 @@ export default function Post({ image, title, post, _id, date }) {
           // height="350"
           className="d-inline-block align-text-top"
         />
-
+        <div style={{textAlign: "center"}} className="container col-sm-5">
+        <input
+          multiple="multiple"
+          type="file"
+          name="img"
+          className="form-control form-control-lg"
+          id="file"
+          accept=".jpg, .png, .jpeg"
+          // value="update image"
+          value={imageState}
+          onChange={(e) => {
+            setImageState(e.target.value);
+          }}
+        />
+        </div>
         <div>{post}</div>
         <div>
           <textarea
