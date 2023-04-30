@@ -6,8 +6,8 @@ import axios from "axios";
 const API_URL = "https://localhost:3001";
 
 export default function Post({ image, title, post, _id, date }) {
-  const [titleState, setTitleState] = useState("");
-  const [postState, setPostState] = useState("");
+  const [titleState, setTitleState] = useState(title);
+  const [postState, setPostState] = useState(post);
   const [imageState, setImageState] = useState("");
 
   // const [state, dispatch] = useState();
