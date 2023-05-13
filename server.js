@@ -62,6 +62,7 @@ connection.on("error", (err) => {
 // app.use("/api/user", UserController);
 // app.use(AuthController);
 app.use("/blogPost", FileUpload);
+app.use('/healthCheck', require("./controllers/HealthCheck"));
 
 // app.post("/api/users", (req, res) => {
 //   var newUser = req.body;
