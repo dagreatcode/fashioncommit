@@ -10,7 +10,7 @@ import NotFound from "./screens/NotFound/NotFound";
 import UpLoadFile from "./screens/UpLoadPage/UpLoadFile";
 import Landing from "./screens/Landing/Landing";
 import Edit from "./screens/Edit/EditPost";
-
+import Admin from "./screens/Admin/Admin"
 function App() {
   // const [posts,setPosts] = useState([]);
   // const [myPosts,setMyPosts] = useState([]);
@@ -65,7 +65,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/UpLoadFile" element={<UpLoadFile />} />
           {/* <Route path="/profile" element={<Profile />} /> */}
-          {/* <Route path="/admin" element={<Admin />} /> */}
+          <Route path="/Admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

@@ -5,6 +5,7 @@ const multer = require("multer");
 const db = require("../models");
 const cloudinary = require("../utils/cloudinary");
 const formidable = require("formidable");
+const fs = require("fs")
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -25,6 +26,7 @@ var storage2 = multer.diskStorage({
     callback(null, Date.now() + "." + fileFormate);
   },
 });
+
 
 const upload = multer({ storage: storage });
 
@@ -74,7 +76,6 @@ router.put("/post/edit/:id", upload.single("images"), (req, res) => {
       return req.flash("error", "Unable to edit article");
     });
 });
-
 
 router.put("test/:id", upload.single("image"), async (req, res) => {
   const updateThePost = {
@@ -166,20 +167,73 @@ router.get("/post/:id", (req, res) => {
 });
 
 router.put("/post/:id", async (req, res) => {
-  try{
-    await db.Blog.findByIdAndUpdate(req.params.id, {title: req.body.title, post: req.body.post}, { new: true })
-  }catch(err){
-    console.log(err);
-      res.status(500).json({
-        err: true,
-        data: null,
-        message: "Failed to update post",
-      });
-  }
-    // .then((updateBlog) => {
-    //   res.json(updateBlog);
-    // })
+  // console.log("req:", req);
+  try {
+    // const form = await formidable({ multiples: true });
+    const form = await new formidable.IncomingForm();
+    console.log({ form: form });
 
+    const uploadFolder = path.join("images");
+    // form.parse(req)
+    form.multiples = true;
+    form.maxFileSize = 50 * 1024 * 1024; // 5MB
+    form.uploadDir = uploadFolder;
+
+    form.parse(req, async (err, fields, files) => {
+      console.log({ fields: fields });
+      console.log({ files: files });
+      const oldpath = files.img.path;
+      const newpath = "images" + files.img.name;
+      fs.rename(oldpath, newpath, (err) => {
+        // if(err) throw (err):
+        res.write("file uploaded");
+        res.end();
+      });
+
+      // if (err) {
+      //   console.log("Error parsing the files");
+      //   return res.status(400).json({
+      //     status: "Fail",
+      //     message: "There was an error parsing the files",
+      //     error: err,
+      //   });
+      // }
+    });
+
+    // form.parse(req, (err, fields, files) => {
+    //   if (err) {
+    //     next(err);
+    //     return;
+    //   }
+    //   res.json({ fields, files });
+    // });
+
+    // form.on("fileBegin", (name, file) => {
+    //   file.path = __dirname + '/uploads' + file.name
+    // })
+    // form.on("file", (name, file)=>{
+    //   console.log("Uploaded file" + file.name)
+    // })
+    // res.sendFile(__dirname + "/uploads")
+
+    // const thePic = await cloudinary.uploader.upload(req.file.path);
+    // console.log(thePic)
+    await db.Blog.findByIdAndUpdate(
+      req.params.id,
+      { title: req.body.title, post: req.body.post },
+      { new: true }
+    );
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      err: true,
+      data: null,
+      message: "Failed to update post",
+    });
+  }
+  // .then((updateBlog) => {
+  //   res.json(updateBlog);
+  // })
 });
 
 router.delete("/delete/:id", async (req, res) => {
