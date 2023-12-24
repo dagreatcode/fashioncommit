@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 // const cors = require("cors");
 // const UserController = require("./controllers/UsersController");
-// const AuthController = require("./controllers/authController");
+const AuthController = require("./controllers/AuthController");
 // const BlogController = require("./controllers/BlogController");
 const FileUpload = require("./controllers/FileUpload");
 
@@ -60,8 +60,9 @@ connection.on("error", (err) => {
 
 // app.use("/api/blog", BlogController);
 // app.use("/api/user", UserController);
-// app.use(AuthController);
+app.use("/api", AuthController);
 app.use("/blogPost", FileUpload);
+app.use('/healthCheck', require("./controllers/HealthCheck"));
 
 // app.post("/api/users", (req, res) => {
 //   var newUser = req.body;

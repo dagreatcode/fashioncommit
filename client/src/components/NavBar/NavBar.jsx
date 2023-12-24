@@ -34,7 +34,7 @@ function NavBar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item" style={{ color: "white" }}>
+              {/* <li className="nav-item" style={{ color: "white" }}>
                 <Link
                   className="nav-link active"
                   aria-current="page"
@@ -42,7 +42,7 @@ function NavBar() {
                 >
                   Up Load
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 {/* <a className="nav-link" href="https://www.bkprofile.ga">
                   Portfolio Website
@@ -67,7 +67,7 @@ function NavBar() {
             </form>
 
             <br />
-            <div className="dropdown">
+            {/* <div className="dropdown">
               <button
                 style={{
                   margin: "5px",
@@ -130,7 +130,7 @@ function NavBar() {
                   Sign in
                 </button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>

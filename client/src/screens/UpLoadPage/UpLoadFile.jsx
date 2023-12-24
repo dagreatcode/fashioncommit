@@ -17,7 +17,7 @@ export default function UpLoadFile() {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        Launch demo modal
+        Add New Post
       </button>
 
       {/* <!-- Modal --> */}
