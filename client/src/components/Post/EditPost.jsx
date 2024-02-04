@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 // import Edit from "../UpLoadModal/EditModal";
+// import { redirect } from 'react-router-dom';
 
 const API_URL = "https://localhost:3001";
 
@@ -9,6 +10,7 @@ export default function Post({ image, title, post, _id, date }) {
   const [titleState, setTitleState] = useState(title);
   const [postState, setPostState] = useState(post);
   const [imageState, setImageState] = useState("");
+  // const history = redirect();
 
   // const [state, dispatch] = useState();
   // const res = await axios.delete(`${API_URL}/blogPost/deletePost/${_id}`)}
@@ -20,6 +22,7 @@ export default function Post({ image, title, post, _id, date }) {
   // };
   const handleSubmit2 = (_id) => {
     //  try{
+    // e.preventDefault();
     console.log("hello");
     //  }catch(error){
     //   console.log(error)
@@ -35,6 +38,7 @@ export default function Post({ image, title, post, _id, date }) {
       enctype: "multipart/form-data"
     });
     console.log(_id);
+    // history('/edit');
   };
   const handleSubmit = (_id) => {
     //  try{
@@ -107,7 +111,8 @@ export default function Post({ image, title, post, _id, date }) {
         onClick={() => handleSubmit2(_id)}
         // value={state}
         method="PUT"
-        // action="/edit"
+        action="/Edit"
+        // path="/edit"
         type="button"
         className="btn btn-success update"
       >
